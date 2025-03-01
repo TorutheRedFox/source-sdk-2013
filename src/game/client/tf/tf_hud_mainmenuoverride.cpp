@@ -1221,16 +1221,16 @@ void CHudMainMenuOverride::LoadMenuEntries(void)
 {
 	KeyValues* datafile = new KeyValues("GameMenu");
 	datafile->UsesEscapeSequences(true);	// VGUI uses escape sequences
-	bool bLoaded = datafile->LoadFromFile(g_pFullFileSystem, "Resource/GameMenuOld.res", "custom_mod");
+	bool bLoaded = datafile->LoadFromFile(g_pFullFileSystem, "Resource/GameMenu.res", "custom_mod");
 	if (!bLoaded)
 	{
-		bLoaded = datafile->LoadFromFile(g_pFullFileSystem, "Resource/GameMenuOld.res", "vgui");
+		bLoaded = datafile->LoadFromFile(g_pFullFileSystem, "Resource/GameMenu.res", "vgui");
 		if (!bLoaded)
 		{
 			// only allow to load loose files when using insecure mode
 			//if (CommandLine()->FindParm("-insecure"))
 			//{
-				bLoaded = datafile->LoadFromFile(g_pFullFileSystem, "Resource/GameMenuOld.res");
+				bLoaded = datafile->LoadFromFile(g_pFullFileSystem, "Resource/GameMenu.res");
 			//}
 		}
 	}
