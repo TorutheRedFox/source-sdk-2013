@@ -1289,8 +1289,6 @@ DECLARE_BUILD_FACTORY( CNotificationsPresentPanel );
 
 int NotificationQueue_Add( CEconNotification *pNotification )
 {
-	return 0;
-
 	if ( ( !engine->IsInGame() && pNotification->BCreateMainMenuPanel() ) ||
 		 ( engine->IsInGame() && cl_notifications_show_ingame.GetBool() && pNotification->BShowInGameElements()) )
 	{

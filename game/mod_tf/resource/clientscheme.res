@@ -901,6 +901,7 @@ Scheme
 				"name"		"TF2 Secondary"
 				"tall"		"24"
 				"weight"	"500"
+				"yres"		"1 1199"
 				"additive"	"0"
 				"antialias" "1"
 			}

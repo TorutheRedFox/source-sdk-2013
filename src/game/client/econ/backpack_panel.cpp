@@ -1882,8 +1882,6 @@ void CBackpackPanel::AddCommerceToContextMenu( Menu *pMenu, const char* pszActio
 //-----------------------------------------------------------------------------
 void CBackpackPanel::OpenContextMenu()
 {
-	return;
-
 	CUtlVector<CEconItemView*> vecSelectedItems; 
 	for ( int i = 0; i < m_pItemModelPanels.Count(); i++ )
 	{
