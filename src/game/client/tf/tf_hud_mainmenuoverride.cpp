@@ -1884,7 +1884,7 @@ void CHudMainMenuOverride::SetMOTDVisible(bool bVisible)
 		UpdateMOTD(false);
 
 		// Clear MOTD button.
-		SetMOTDButtonVisible(true);
+		SetMOTDButtonVisible(false);
 		SetNotificationsPanelVisible(false);
 		//SetQuestLogVisible(false);
 		//SetWatchStreamVisible(false);
