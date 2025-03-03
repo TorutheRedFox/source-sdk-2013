@@ -295,8 +295,8 @@
 				"ypos_hidef"			"49"
 				"ypos_lodef"			"49"
 				"zpos"			"5"
-				"wide"			"150" [$WIN32]
-				"wide"			"170" [$X360]
+				"wide"			"150" [$WIN32_old]
+				"wide"			"170" [$WIN32]
 				"tall"			"20"
 				"autoResize"	"0"
 				"pinCorner"		"0"
@@ -1845,8 +1845,8 @@
 			"tall"			"20"
 			"autoResize"	"0"
 			"pinCorner"		"0"
-			"visible"		"1"	[$WIN32]
-			"visible"		"0"	[$X360]
+			"visible"		"1"	[$WIN32_old]
+			"visible"		"0"	[$WIN32]
 			"enabled"		"1"
 		}							
 		"RecordsSubBG1"
@@ -1888,8 +1888,8 @@
 			"tall"			"20"
 			"autoResize"	"0"
 			"pinCorner"		"0"
-			"visible"		"0"	[$WIN32]
-			"visible"		"1"	[$X360]
+			"visible"		"0"	[$WIN32_old]
+			"visible"		"1"	[$WIN32]
 			"enabled"		"1"
 		}	
 		"OverallRecord1Label"
@@ -2656,7 +2656,7 @@
 		"enabled"		"1"
 		"wrap"			"1"
 	}
-	"NextTipButton" [$WIN32]
+	"NextTipButton" [$WIN32_old]
 	{
 		"ControlName"		"Button"
 		"fieldName"		"NextTipButton"
@@ -2676,7 +2676,7 @@
 		"brighttext"	"0"
 		"Command"		"nexttip"
 	}
-	"ResetStatsButton" [$WIN32]
+	"ResetStatsButton" [$WIN32_old]
 	{
 		"ControlName"		"Button"
 		"fieldName"		"ResetStatsButton"
@@ -2696,7 +2696,7 @@
 		"brighttext"	"0"
 		"Command"		"resetstatsbutton"
 	}
-	"CloseButton" [$WIN32]
+	"CloseButton" [$WIN32_old]
 	{
 		"ControlName"		"Button"
 		"fieldName"		"CloseButton"
@@ -2716,7 +2716,7 @@
 		"brighttext"	"0"
 		"Command"		"vguicancel"
 	}
-	"Footer" [$X360]
+	"Footer" [$WIN32]
 	{
 		"ControlName"		"CTFFooter"
 		"fieldName"			"Footer"
@@ -2751,7 +2751,7 @@
 			"icon"		"#GameUI_Icons_A_BUTTON"	
 		}
 	}		
-	"TitleBanner" [$X360]
+	"TitleBanner" [$WIN32]
 	{
 		"ControlName"	"ImagePanel"
 		"xpos"			"0"

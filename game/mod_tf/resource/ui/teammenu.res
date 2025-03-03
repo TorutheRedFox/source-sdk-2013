@@ -77,8 +77,8 @@
 		"visible"		"1"
 		"enabled"		"1"
 		"tabPosition"	"3"
-		"labelText"		"&3"	[$WIN32]
-		"labelText"		""		[$X360]
+		"labelText"		"&3"	[$WIN32_old]
+		"labelText"		""		[$WIN32]
 		"textAlignment"	"south-west"
 		"dulltext"		"0"
 		"brighttext"	"0"
@@ -105,8 +105,8 @@
 		"visible"		"1"
 		"enabled"		"1"
 		"tabPosition"	"4"
-		"labelText"		"&4"	[$WIN32]
-		"labelText"		""		[$X360]
+		"labelText"		"&4"	[$WIN32_old]
+		"labelText"		""		[$WIN32]
 		"textAlignment"	"south-west"
 		"dulltext"		"0"
 		"brighttext"	"0"
@@ -133,8 +133,8 @@
 		"visible"		"1"
 		"enabled"		"1"
 		"tabPosition"	"1"
-		"labelText"		"&1"	[$WIN32]
-		"labelText"		""		[$X360]
+		"labelText"		"&1"	[$WIN32_old]
+		"labelText"		""		[$WIN32]
 		"textAlignment"	"south-west"
 		"dulltext"		"0"
 		"brighttext"	"0"
@@ -159,8 +159,8 @@
 		"visible"		"1"
 		"enabled"		"1"
 		"tabPosition"	"2"
-		"labelText"		"&2"	[$WIN32]
-		"labelText"		""		[$X360]
+		"labelText"		"&2"	[$WIN32_old]
+		"labelText"		""		[$WIN32]
 		"textAlignment"	"south-west"
 		"dulltext"		"0"
 		"brighttext"	"0"
@@ -171,7 +171,7 @@
 		"fgcolor"		"255 255 255 255"
 	}
 	
-	"CancelButton" [$WIN32] 
+	"CancelButton" [$WIN32_old] 
 	{
 		"ControlName"	"CExButton"
 		"fieldName"		"CancelButton"
@@ -226,16 +226,16 @@
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"TeamMenuAuto"
-		"xpos"			"c-280" [$WIN32] 
-		"xpos"			"c-276" [$X360]
+		"xpos"			"c-280" [$WIN32_old] 
+		"xpos"			"c-276" [$WIN32]
 		"xpos_lodef"			"c-255"
 		"xpos_hidef"			"c-260"
 		"ypos"			"55"
 		"ypos_lodef"			"72"
 		"ypos_hidef"			"65"
 		"zpos"			"1"
-		"wide"			"102" [$WIN32] 
-		"wide"			"94" [$X360]
+		"wide"			"102" [$WIN32_old] 
+		"wide"			"94" [$WIN32]
 		"tall"			"24"
 		"autoResize"	"0"
 		"pinCorner"		"0"
@@ -622,7 +622,7 @@
 		}
 	}			
 	
-	"Footer" [$X360]
+	"Footer" [$WIN32]
 	{
 		"ControlName"		"CTFFooter"
 		"fieldName"			"Footer"
@@ -666,7 +666,7 @@
 		}
 	}	
 	
-	"HighlanderLabel" [$WIN32] 
+	"HighlanderLabel" [$WIN32_old] 
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"HighlanderLabel"
@@ -688,7 +688,7 @@
 		"centerwrap"	"1"
 	}
 	
-	"HighlanderLabelShadow" [$WIN32] 
+	"HighlanderLabelShadow" [$WIN32_old] 
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"HighlanderLabelShadow"
@@ -710,7 +710,7 @@
 		"centerwrap"	"1"
 	}
 	
-	"TeamsFullLabel" [$WIN32] 
+	"TeamsFullLabel" [$WIN32_old] 
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"TeamsFullLabel"
@@ -732,7 +732,7 @@
 		"centerwrap"	"1"
 	}
 	
-	"TeamsFullLabelShadow" [$WIN32] 
+	"TeamsFullLabelShadow" [$WIN32_old] 
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"TeamsFullLabelShadow"
@@ -754,7 +754,7 @@
 		"centerwrap"	"1"
 	}
 
-	"TeamsFullArrow" [$WIN32]
+	"TeamsFullArrow" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"TeamsFullArrow"

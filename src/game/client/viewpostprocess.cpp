@@ -1626,7 +1626,7 @@ static void DoPreBloomTonemapping( IMatRenderContext *pRenderContext, int nX, in
 			{
 				bool bDrawTextThisFrame = true;
 
-				if ( IsX360() )
+				if ( true/*IsX360()*/ )
 				{
 					static float s_flLastTimeUpdate = 0.0f;
 					if ( int( gpGlobals->curtime ) - int( s_flLastTimeUpdate ) >= 2 )
@@ -2278,7 +2278,7 @@ void DoEnginePostProcessing( int x, int y, int w, int h, bool bFlashlightIsOn, b
 			// Set software-AA on by default for 360
 			if ( mat_software_aa_strength.GetFloat() == -1.0f )
 			{
-				if ( IsX360() )
+				if ( true/*IsX360()*/ )
 				{
 					mat_software_aa_strength.SetValue( 1.0f );
 					if ( g_pMaterialSystem->GetCurrentConfigForVideoCard().m_VideoMode.m_Height > 480 )
@@ -2300,7 +2300,7 @@ void DoEnginePostProcessing( int x, int y, int w, int h, bool bFlashlightIsOn, b
 			// Same trick for setting up the vgui aa strength
 			if ( mat_software_aa_strength_vgui.GetFloat() == -1.0f )
 			{
-				if ( IsX360() && (g_pMaterialSystem->GetCurrentConfigForVideoCard().m_VideoMode.m_Height == 720) )
+				if ( true/*IsX360()*/ && (g_pMaterialSystem->GetCurrentConfigForVideoCard().m_VideoMode.m_Height == 720) )
 				{
 					mat_software_aa_strength_vgui.SetValue( 2.0f );
 				}
@@ -2313,7 +2313,7 @@ void DoEnginePostProcessing( int x, int y, int w, int h, bool bFlashlightIsOn, b
 			float flAAStrength;
 
 			// We do a second AA blur pass over the TF intro menus. use mat_software_aa_strength_vgui there instead
-			if ( IsX360() && bPostVGui )
+			if ( true/*IsX360()*/ && bPostVGui )
 			{
 				flAAStrength = mat_software_aa_strength_vgui.GetFloat();
 			}
@@ -2325,7 +2325,7 @@ void DoEnginePostProcessing( int x, int y, int w, int h, bool bFlashlightIsOn, b
 			static ConVarRef mat_colorcorrection( "mat_colorcorrection" );
 
 			// bloom, software-AA and colour-correction (applied in 1 pass, after generation of the bloom texture)
-			bool  bPerformSoftwareAA	= IsX360() && ( engine->GetDXSupportLevel() >= 90 ) && ( flAAStrength != 0.0f );
+			bool  bPerformSoftwareAA	= true/*IsX360()*/ && ( engine->GetDXSupportLevel() >= 90 ) && ( flAAStrength != 0.0f );
 			bool  bPerformBloom			= !bPostVGui && ( flBloomScale > 0.0f ) && ( engine->GetDXSupportLevel() >= 90 );
 			bool  bPerformColCorrect	= !bPostVGui && 
 										  ( g_pMaterialSystemHardwareConfig->GetDXSupportLevel() >= 90) &&
@@ -2395,7 +2395,7 @@ void DoEnginePostProcessing( int x, int y, int w, int h, bool bFlashlightIsOn, b
 				// when run outside the debugger for some mods (DoD). This forces it to skip
 				// a frame, ensuring we don't get the weird texture crash we otherwise would.
 				// FIXME: This will be removed when the true cause is found [added: Main CL 144694]
-				static bool bFirstFrame = !IsX360();
+				static bool bFirstFrame = false;// !IsX360();
 				if( !bFirstFrame || !bPerformColCorrect )
 				{
 					bool bFBUpdated = false;

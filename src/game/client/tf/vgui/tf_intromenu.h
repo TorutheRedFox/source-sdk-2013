@@ -99,14 +99,14 @@ private:
 	CModelPanel		*m_pModel;
 	CExLabel		*m_pCaptionLabel;
 
-#ifdef _X360
+//#ifdef _X360
 	CTFFooter		*m_pFooter;
-#else
+//#else
 	CExButton		*m_pBack;
 	CExButton		*m_pOK;
 	CExButton		*m_pReplayVideo;
 	CExButton		*m_pContinue;
-#endif
+//#endif
 
 	float			m_flActionThink;
 	int				m_iAction;

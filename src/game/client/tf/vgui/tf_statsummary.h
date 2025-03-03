@@ -99,13 +99,13 @@ private:
 
 	vgui::EditablePanel	*m_pContributedPanel;
 
-#ifdef _X360
+//#ifdef _X360
 	CTFFooter		*m_pFooter;
-#else
-	vgui::Button *m_pNextTipButton;
-	vgui::Button *m_pCloseButton;
-	vgui::Button *m_pResetStatsButton;
-#endif
+//#else
+//	vgui::Button *m_pNextTipButton;
+//	vgui::Button *m_pCloseButton;
+//	vgui::Button *m_pResetStatsButton;
+//#endif
 
 	bool m_bInteractive;							// are we in interactive mode
 	bool m_bEmbedded;								// are we embedded in a property sheet?
@@ -127,9 +127,9 @@ private:
 	int m_yStartLeaderboard;
 	CUtlVector< vgui::EditablePanel* > m_vecLeaderboardEntries;
 
-#ifdef _X360
+//#ifdef _X360
 	bool m_bShowBackButton;
-#endif
+//#endif
 };
 
 

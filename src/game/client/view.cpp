@@ -71,13 +71,13 @@ bool ToolFramework_SetupEngineMicrophone( Vector &origin, QAngle &angles );
 extern ConVar default_fov;
 extern bool g_bRenderingScreenshot;
 
-#if !defined( _X360 )
-#define SAVEGAME_SCREENSHOT_WIDTH	180
-#define SAVEGAME_SCREENSHOT_HEIGHT	100
-#else
+//#if !defined( _X360 )
+//#define SAVEGAME_SCREENSHOT_WIDTH	180
+//#define SAVEGAME_SCREENSHOT_HEIGHT	100
+//#else
 #define SAVEGAME_SCREENSHOT_WIDTH	128
 #define SAVEGAME_SCREENSHOT_HEIGHT	128
-#endif
+//#endif
 
 #ifndef _XBOX
 extern ConVar sensitivity;
@@ -812,146 +812,146 @@ void CViewRender::SetUpViews()
 void CViewRender::WriteSaveGameScreenshotOfSize( const char *pFilename, int width, int height, bool bCreatePowerOf2Padded/*=false*/,
 												 bool bWriteVTF/*=false*/ )
 {
-#ifndef _X360
-	CMatRenderContextPtr pRenderContext( materials );
-	pRenderContext->MatrixMode( MATERIAL_PROJECTION );
-	pRenderContext->PushMatrix();
-	
-	pRenderContext->MatrixMode( MATERIAL_VIEW );
-	pRenderContext->PushMatrix();
-
-	g_bRenderingScreenshot = true;
-
-	// Push back buffer on the stack with small viewport
-	pRenderContext->PushRenderTargetAndViewport( NULL, 0, 0, width, height );
-
-	// render out to the backbuffer
-    CViewSetup viewSetup = GetView ( STEREO_EYE_MONO );
-	viewSetup.x = 0;
-	viewSetup.y = 0;
-	viewSetup.width = width;
-	viewSetup.height = height;
-	viewSetup.fov = ScaleFOVByWidthRatio( viewSetup.fov, ( (float)width / (float)height ) / ( 4.0f / 3.0f ) );
-	viewSetup.m_bRenderToSubrectOfLargerScreen = true;
-
-	// draw out the scene
-	// Don't draw the HUD or the viewmodel
-	RenderView( viewSetup, VIEW_CLEAR_DEPTH | VIEW_CLEAR_COLOR, 0 );
-
-	// get the data from the backbuffer and save to disk
-	// bitmap bits
-	unsigned char *pImage = ( unsigned char * )malloc( width * height * 3 );
-
-	// Get Bits from the material system
-	pRenderContext->ReadPixels( 0, 0, width, height, pImage, IMAGE_FORMAT_RGB888 );
-
-	// Some stuff to be setup dependent on padded vs. not padded
-	int nSrcWidth, nSrcHeight;
-	unsigned char *pSrcImage;
-
-	// Create a padded version if necessary
-	unsigned char *pPaddedImage = NULL;
-	if ( bCreatePowerOf2Padded )
-	{
-		// Setup dimensions as needed
-		int nPaddedWidth = SmallestPowerOfTwoGreaterOrEqual( width );
-		int nPaddedHeight = SmallestPowerOfTwoGreaterOrEqual( height );
-
-		// Allocate
-		int nPaddedImageSize = nPaddedWidth * nPaddedHeight * 3;
-		pPaddedImage = ( unsigned char * )malloc( nPaddedImageSize );
-		
-		// Zero out the entire thing
-		V_memset( pPaddedImage, 255, nPaddedImageSize );
-
-		// Copy over each row individually
-		for ( int nRow = 0; nRow < height; ++nRow )
-		{
-			unsigned char *pDst = pPaddedImage + 3 * ( nRow * nPaddedWidth );
-			const unsigned char *pSrc = pImage + 3 * ( nRow * width );
-			V_memcpy( pDst, pSrc, 3 * width );
-		}
-
-		// Setup source data
-		nSrcWidth = nPaddedWidth;
-		nSrcHeight = nPaddedHeight;
-		pSrcImage = pPaddedImage;
-	}
-	else
-	{
-		// Use non-padded info
-		nSrcWidth = width;
-		nSrcHeight = height;
-		pSrcImage = pImage;
-	}
-
-	// allocate a buffer to write the tga into
-	CUtlBuffer buffer;
-
-	bool bWriteResult;
-	if ( bWriteVTF )
-	{
-		// Create and initialize a VTF texture
-		IVTFTexture *pVTFTexture = CreateVTFTexture();
-		const int nFlags = TEXTUREFLAGS_NOMIP | TEXTUREFLAGS_NOLOD | TEXTUREFLAGS_SRGB;
-		if ( pVTFTexture->Init( nSrcWidth, nSrcHeight, 1, IMAGE_FORMAT_RGB888, nFlags, 1, 1 ) )
-		{
-			// Copy the image data over to the VTF
-			unsigned char *pDestBits = pVTFTexture->ImageData();
-			int nDstSize = nSrcWidth * nSrcHeight * 3;
-			V_memcpy( pDestBits, pSrcImage, nDstSize );
-
-			// Allocate output buffer
-			int iMaxVTFSize = 1024 + ( nSrcWidth * nSrcHeight * 3 );
-			void *pVTF = malloc( iMaxVTFSize );
-			buffer.SetExternalBuffer( pVTF, iMaxVTFSize, 0 );
-
-			// Serialize to the buffer
-			bWriteResult = pVTFTexture->Serialize( buffer );
-		
-			// Free the VTF texture
-			DestroyVTFTexture( pVTFTexture );
-		}
-		else
-		{
-			bWriteResult = false;
-		}
-	}
-	else
-	{
-		// Write TGA format to buffer
-		int iMaxTGASize = 1024 + ( nSrcWidth * nSrcHeight * 4 );
-		void *pTGA = malloc( iMaxTGASize );
-		buffer.SetExternalBuffer( pTGA, iMaxTGASize, 0 );
-
-		bWriteResult = TGAWriter::WriteToBuffer( pSrcImage, buffer, nSrcWidth, nSrcHeight, IMAGE_FORMAT_RGB888, IMAGE_FORMAT_RGB888 );
-	}
-
-	if ( !bWriteResult )
-	{
-		Error( "Couldn't write bitmap data snapshot.\n" );
-	}
-	
-	free( pImage );
-	free( pPaddedImage );
-
-	// async write to disk (this will take ownership of the memory)
-	char szPathedFileName[_MAX_PATH];
-	Q_snprintf( szPathedFileName, sizeof(szPathedFileName), "//MOD/%s", pFilename );
-
-	filesystem->AsyncWrite( szPathedFileName, buffer.Base(), buffer.TellPut(), true );
-
-	// restore our previous state
-	pRenderContext->PopRenderTargetAndViewport();
-	
-	pRenderContext->MatrixMode( MATERIAL_PROJECTION );
-	pRenderContext->PopMatrix();
-	
-	pRenderContext->MatrixMode( MATERIAL_VIEW );
-	pRenderContext->PopMatrix();
-
-	g_bRenderingScreenshot = false;
-#endif
+//#ifndef _X360
+//	CMatRenderContextPtr pRenderContext( materials );
+//	pRenderContext->MatrixMode( MATERIAL_PROJECTION );
+//	pRenderContext->PushMatrix();
+//	
+//	pRenderContext->MatrixMode( MATERIAL_VIEW );
+//	pRenderContext->PushMatrix();
+//
+//	g_bRenderingScreenshot = true;
+//
+//	// Push back buffer on the stack with small viewport
+//	pRenderContext->PushRenderTargetAndViewport( NULL, 0, 0, width, height );
+//
+//	// render out to the backbuffer
+//    CViewSetup viewSetup = GetView ( STEREO_EYE_MONO );
+//	viewSetup.x = 0;
+//	viewSetup.y = 0;
+//	viewSetup.width = width;
+//	viewSetup.height = height;
+//	viewSetup.fov = ScaleFOVByWidthRatio( viewSetup.fov, ( (float)width / (float)height ) / ( 4.0f / 3.0f ) );
+//	viewSetup.m_bRenderToSubrectOfLargerScreen = true;
+//
+//	// draw out the scene
+//	// Don't draw the HUD or the viewmodel
+//	RenderView( viewSetup, VIEW_CLEAR_DEPTH | VIEW_CLEAR_COLOR, 0 );
+//
+//	// get the data from the backbuffer and save to disk
+//	// bitmap bits
+//	unsigned char *pImage = ( unsigned char * )malloc( width * height * 3 );
+//
+//	// Get Bits from the material system
+//	pRenderContext->ReadPixels( 0, 0, width, height, pImage, IMAGE_FORMAT_RGB888 );
+//
+//	// Some stuff to be setup dependent on padded vs. not padded
+//	int nSrcWidth, nSrcHeight;
+//	unsigned char *pSrcImage;
+//
+//	// Create a padded version if necessary
+//	unsigned char *pPaddedImage = NULL;
+//	if ( bCreatePowerOf2Padded )
+//	{
+//		// Setup dimensions as needed
+//		int nPaddedWidth = SmallestPowerOfTwoGreaterOrEqual( width );
+//		int nPaddedHeight = SmallestPowerOfTwoGreaterOrEqual( height );
+//
+//		// Allocate
+//		int nPaddedImageSize = nPaddedWidth * nPaddedHeight * 3;
+//		pPaddedImage = ( unsigned char * )malloc( nPaddedImageSize );
+//		
+//		// Zero out the entire thing
+//		V_memset( pPaddedImage, 255, nPaddedImageSize );
+//
+//		// Copy over each row individually
+//		for ( int nRow = 0; nRow < height; ++nRow )
+//		{
+//			unsigned char *pDst = pPaddedImage + 3 * ( nRow * nPaddedWidth );
+//			const unsigned char *pSrc = pImage + 3 * ( nRow * width );
+//			V_memcpy( pDst, pSrc, 3 * width );
+//		}
+//
+//		// Setup source data
+//		nSrcWidth = nPaddedWidth;
+//		nSrcHeight = nPaddedHeight;
+//		pSrcImage = pPaddedImage;
+//	}
+//	else
+//	{
+//		// Use non-padded info
+//		nSrcWidth = width;
+//		nSrcHeight = height;
+//		pSrcImage = pImage;
+//	}
+//
+//	// allocate a buffer to write the tga into
+//	CUtlBuffer buffer;
+//
+//	bool bWriteResult;
+//	if ( bWriteVTF )
+//	{
+//		// Create and initialize a VTF texture
+//		IVTFTexture *pVTFTexture = CreateVTFTexture();
+//		const int nFlags = TEXTUREFLAGS_NOMIP | TEXTUREFLAGS_NOLOD | TEXTUREFLAGS_SRGB;
+//		if ( pVTFTexture->Init( nSrcWidth, nSrcHeight, 1, IMAGE_FORMAT_RGB888, nFlags, 1, 1 ) )
+//		{
+//			// Copy the image data over to the VTF
+//			unsigned char *pDestBits = pVTFTexture->ImageData();
+//			int nDstSize = nSrcWidth * nSrcHeight * 3;
+//			V_memcpy( pDestBits, pSrcImage, nDstSize );
+//
+//			// Allocate output buffer
+//			int iMaxVTFSize = 1024 + ( nSrcWidth * nSrcHeight * 3 );
+//			void *pVTF = malloc( iMaxVTFSize );
+//			buffer.SetExternalBuffer( pVTF, iMaxVTFSize, 0 );
+//
+//			// Serialize to the buffer
+//			bWriteResult = pVTFTexture->Serialize( buffer );
+//		
+//			// Free the VTF texture
+//			DestroyVTFTexture( pVTFTexture );
+//		}
+//		else
+//		{
+//			bWriteResult = false;
+//		}
+//	}
+//	else
+//	{
+//		// Write TGA format to buffer
+//		int iMaxTGASize = 1024 + ( nSrcWidth * nSrcHeight * 4 );
+//		void *pTGA = malloc( iMaxTGASize );
+//		buffer.SetExternalBuffer( pTGA, iMaxTGASize, 0 );
+//
+//		bWriteResult = TGAWriter::WriteToBuffer( pSrcImage, buffer, nSrcWidth, nSrcHeight, IMAGE_FORMAT_RGB888, IMAGE_FORMAT_RGB888 );
+//	}
+//
+//	if ( !bWriteResult )
+//	{
+//		Error( "Couldn't write bitmap data snapshot.\n" );
+//	}
+//	
+//	free( pImage );
+//	free( pPaddedImage );
+//
+//	// async write to disk (this will take ownership of the memory)
+//	char szPathedFileName[_MAX_PATH];
+//	Q_snprintf( szPathedFileName, sizeof(szPathedFileName), "//MOD/%s", pFilename );
+//
+//	filesystem->AsyncWrite( szPathedFileName, buffer.Base(), buffer.TellPut(), true );
+//
+//	// restore our previous state
+//	pRenderContext->PopRenderTargetAndViewport();
+//	
+//	pRenderContext->MatrixMode( MATERIAL_PROJECTION );
+//	pRenderContext->PopMatrix();
+//	
+//	pRenderContext->MatrixMode( MATERIAL_VIEW );
+//	pRenderContext->PopMatrix();
+//
+//	g_bRenderingScreenshot = false;
+//#endif
 }
 
 //-----------------------------------------------------------------------------
@@ -1232,10 +1232,10 @@ void CViewRender::Render( vrect_t *rect )
 	g_pClientMode->PostRender();
 	engine->EngineStats_EndFrame();
 
-#if !defined( _X360 )
-	// Stop stubbing the material system so we can see the budget panel
-	matStub.End();
-#endif
+//#if !defined( _X360 )
+//	// Stop stubbing the material system so we can see the budget panel
+//	matStub.End();
+//#endif
 
 
 	// Draw all of the UI stuff "fullscreen"

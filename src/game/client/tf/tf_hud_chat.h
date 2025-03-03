@@ -82,10 +82,10 @@ public:
 
 	virtual int				GetFilterFlags( void );
 
-#if defined( _X360 )
+//#if defined( _X360 )
 	// hide behind other panels ( stats , build menu ) in 360
 	virtual int		GetRenderGroupPriority( void ) { return 35; }	// less than statpanel
-#endif
+//#endif
 
 	Color m_colorPartyEvent;
 	Color m_colorPartyMessage;

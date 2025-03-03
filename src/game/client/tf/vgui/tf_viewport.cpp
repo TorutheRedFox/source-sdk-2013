@@ -263,7 +263,7 @@ void TFViewport::ApplySchemeSettings( vgui::IScheme *pScheme )
 	SetPaintBackgroundEnabled( false );
 
 	// Precache some font characters for the 360
- 	if ( IsX360() || CommandLine()->CheckParm( "-precachefontchars" ) || CommandLine()->CheckParm( "-precachefontintlchars" ) )
+ 	if ( CommandLine()->CheckParm( "-precachefontchars" ) || CommandLine()->CheckParm( "-precachefontintlchars" ) )
  	{
  		const wchar_t *pAllChars = L"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789,.!:";
  		const wchar_t *pNumbers = L"0123456789";
@@ -398,7 +398,7 @@ int TFViewport::GetDeathMessageStartHeight( void )
 {
 	int y = YRES(2);
 
-	if ( IsX360() )
+	if ( true/*IsX360()*/ )
 	{
 		y = YRES(36);
 	}

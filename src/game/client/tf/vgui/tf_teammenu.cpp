@@ -264,18 +264,18 @@ CTFTeamMenu::CTFTeamMenu( IViewPort *pViewPort ) : CTeamMenu( pViewPort )
 	m_pSpecTeamButton = new CTFTeamButton( this, "teambutton3" );
 	m_pSpecLabel = new CExLabel( this, "TeamMenuSpectate", "" );
 
-#ifdef _X360
+//#ifdef _X360
 	m_pFooter = new CTFFooter( this, "Footer" );
-#else
-	m_pCancelButton = new CExButton( this, "CancelButton", "#TF_Cancel" );
-
-	m_pHighlanderLabel = new CExLabel( this, "HighlanderLabel", ""  );
-	m_pHighlanderLabelShadow = new CExLabel( this, "HighlanderLabelShadow", ""  );
-	m_pTeamsFullLabel = new CExLabel( this, "TeamsFullLabel", ""  );
-	m_pTeamsFullLabelShadow = new CExLabel( this, "TeamsFullLabelShadow", "" );
-	m_pTeamsFullArrow = new CTFImagePanel( this, "TeamsFullArrow" );
-
-#endif
+//#else
+//	m_pCancelButton = new CExButton( this, "CancelButton", "#TF_Cancel" );
+//
+//	m_pHighlanderLabel = new CExLabel( this, "HighlanderLabel", ""  );
+//	m_pHighlanderLabelShadow = new CExLabel( this, "HighlanderLabelShadow", ""  );
+//	m_pTeamsFullLabel = new CExLabel( this, "TeamsFullLabel", ""  );
+//	m_pTeamsFullLabelShadow = new CExLabel( this, "TeamsFullLabelShadow", "" );
+//	m_pTeamsFullArrow = new CTFImagePanel( this, "TeamsFullArrow" );
+//
+//#endif
 
 	vgui::ivgui()->AddTickSignal( GetVPanel(), 100 );
 
@@ -310,26 +310,26 @@ void CTFTeamMenu::ApplySchemeSettings( IScheme *pScheme )
 {
 	BaseClass::ApplySchemeSettings( pScheme );
 
-	if ( ::input->IsSteamControllerActive() )
-	{
-		LoadControlSettings( "Resource/UI/Teammenu_SC.res" );
-		m_pCancelHintIcon = dynamic_cast< CSCHintIcon* >( FindChildByName( "CancelHintIcon" ) );
-		m_pJoinAutoHintIcon = dynamic_cast< CSCHintIcon* >( FindChildByName( "JoinAutoHintIcon" ) );
-		m_pJoinBluHintIcon = dynamic_cast< CSCHintIcon* >( FindChildByName( "JoinBluHintIcon" ) );
-		m_pJoinRedHintIcon = dynamic_cast< CSCHintIcon* >( FindChildByName( "JoinRedHintIcon" ) );
-		m_pJoinSpectatorsHintIcon = dynamic_cast< CSCHintIcon* >( FindChildByName( "JoinSpectatorsHintIcon" ) );
-
-		SetMouseInputEnabled( false );
-	}
-	else
-	{
-		LoadControlSettings( "Resource/UI/Teammenu.res" );
-
-		m_pCancelHintIcon = nullptr;
-		m_pJoinAutoHintIcon = m_pJoinRedHintIcon = m_pJoinBluHintIcon = m_pJoinSpectatorsHintIcon = nullptr;
-
-		SetMouseInputEnabled( true );
-	}
+	//if ( ::input->IsSteamControllerActive() )
+	//{
+	//	LoadControlSettings( "Resource/UI/Teammenu_SC.res" );
+	//	m_pCancelHintIcon = dynamic_cast< CSCHintIcon* >( FindChildByName( "CancelHintIcon" ) );
+	//	m_pJoinAutoHintIcon = dynamic_cast< CSCHintIcon* >( FindChildByName( "JoinAutoHintIcon" ) );
+	//	m_pJoinBluHintIcon = dynamic_cast< CSCHintIcon* >( FindChildByName( "JoinBluHintIcon" ) );
+	//	m_pJoinRedHintIcon = dynamic_cast< CSCHintIcon* >( FindChildByName( "JoinRedHintIcon" ) );
+	//	m_pJoinSpectatorsHintIcon = dynamic_cast< CSCHintIcon* >( FindChildByName( "JoinSpectatorsHintIcon" ) );
+	//
+	//	SetMouseInputEnabled( false );
+	//}
+	//else
+	//{
+	//	LoadControlSettings( "Resource/UI/Teammenu.res" );
+	//
+	//	m_pCancelHintIcon = nullptr;
+	//	m_pJoinAutoHintIcon = m_pJoinRedHintIcon = m_pJoinBluHintIcon = m_pJoinSpectatorsHintIcon = nullptr;
+	//
+	//	SetMouseInputEnabled( true );
+	//}
 
 	Update();
 }
@@ -461,43 +461,43 @@ void CTFTeamMenu::Update( void )
 
 	if ( pLocalPlayer && ( pLocalPlayer->GetTeamNumber() != TEAM_UNASSIGNED ) )
 	{
-#ifdef _X360
+//#ifdef _X360
 		if ( m_pFooter )
 		{
 			m_pFooter->ShowButtonLabel( "cancel", true );
 		}
-#else
-		if ( m_pCancelButton )
-		{
-			m_pCancelButton->SetVisible( true );
-			if ( m_pCancelHintIcon )
-			{
-				m_pCancelHintIcon->SetVisible( true );
-			}
-		}
-#endif
+//#else
+//		if ( m_pCancelButton )
+//		{
+//			m_pCancelButton->SetVisible( true );
+//			if ( m_pCancelHintIcon )
+//			{
+//				m_pCancelHintIcon->SetVisible( true );
+//			}
+//		}
+//#endif
 	}
 	else
 	{
-#ifdef _X360
+//#ifdef _X360
 		if ( m_pFooter )
 		{
 			m_pFooter->ShowButtonLabel( "cancel", false );
 		}
-#else
-		if ( m_pCancelButton && m_pCancelButton->IsVisible() )
-		{
-			m_pCancelButton->SetVisible( false );
-			if ( m_pCancelHintIcon )
-			{
-				m_pCancelHintIcon->SetVisible( false );
-			}
-		}
-#endif
+//#else
+//		if ( m_pCancelButton && m_pCancelButton->IsVisible() )
+//		{
+//			m_pCancelButton->SetVisible( false );
+//			if ( m_pCancelHintIcon )
+//			{
+//				m_pCancelHintIcon->SetVisible( false );
+//			}
+//		}
+//#endif
 	}
 }
 
-#ifdef _X360
+//#ifdef _X360
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
@@ -510,7 +510,7 @@ void CTFTeamMenu::Join_Team( const CCommand &args )
 		OnCommand( cmd );
 	}
 }
-#endif
+//#endif
 
 //-----------------------------------------------------------------------------
 // Purpose: chooses and loads the text page to display that describes mapName map
@@ -684,24 +684,24 @@ void CTFTeamMenu::OnClose()
 //-----------------------------------------------------------------------------
 void CTFTeamMenu::ActivateSelectIconHint( int focus_group_number )
 {
-	if ( m_pJoinAutoHintIcon ) m_pJoinAutoHintIcon->SetVisible( false );
-	if ( m_pJoinBluHintIcon ) m_pJoinBluHintIcon->SetVisible( false );
-	if ( m_pJoinRedHintIcon ) m_pJoinRedHintIcon->SetVisible( false );
-	if ( m_pJoinSpectatorsHintIcon ) m_pJoinSpectatorsHintIcon->SetVisible( false );
-
-	CSCHintIcon* icon = nullptr;
-	switch ( focus_group_number )
-	{
-		case 1: icon = m_pJoinAutoHintIcon; break;
-		case 2: icon = m_pJoinSpectatorsHintIcon; break;
-		case 3: icon = m_pJoinBluHintIcon; break;
-		case 4: icon = m_pJoinRedHintIcon; break;
-	}
-
-	if ( icon )
-	{
-		icon->SetVisible( true );
-	}
+	//if ( m_pJoinAutoHintIcon ) m_pJoinAutoHintIcon->SetVisible( false );
+	//if ( m_pJoinBluHintIcon ) m_pJoinBluHintIcon->SetVisible( false );
+	//if ( m_pJoinRedHintIcon ) m_pJoinRedHintIcon->SetVisible( false );
+	//if ( m_pJoinSpectatorsHintIcon ) m_pJoinSpectatorsHintIcon->SetVisible( false );
+	//
+	//CSCHintIcon* icon = nullptr;
+	//switch ( focus_group_number )
+	//{
+	//	case 1: icon = m_pJoinAutoHintIcon; break;
+	//	case 2: icon = m_pJoinSpectatorsHintIcon; break;
+	//	case 3: icon = m_pJoinBluHintIcon; break;
+	//	case 4: icon = m_pJoinRedHintIcon; break;
+	//}
+	//
+	//if ( icon )
+	//{
+	//	icon->SetVisible( true );
+	//}
 }
 
 
@@ -710,46 +710,46 @@ void CTFTeamMenu::ActivateSelectIconHint( int focus_group_number )
 //-----------------------------------------------------------------------------
 void CTFTeamMenu::SetHighlanderTeamsFullPanels( bool bTeamsFull, bool bForce /* = false */ )
 {
-	if ( m_pTeamsFullLabel )
-	{
-		if ( bForce || ( m_pTeamsFullLabel->IsVisible() != bTeamsFull ) )
-		{
-			m_pTeamsFullLabel->SetVisible( bTeamsFull );
-		}
-	}
-
-	if ( m_pTeamsFullLabelShadow )
-	{
-		if ( bForce || ( m_pTeamsFullLabelShadow->IsVisible() != bTeamsFull ) )
-		{
-			m_pTeamsFullLabelShadow->SetVisible( bTeamsFull );
-		}
-	}
-
-	if ( !mp_allowspectators.GetBool() )
-	{
-		// don't show the arrow if the server doesn't allow spectators
-		bTeamsFull = false;
-	}
-
-	if ( m_pTeamsFullArrow )
-	{
-		if ( bForce || ( m_pTeamsFullArrow->IsVisible() != bTeamsFull ) )
-		{
-			m_pTeamsFullArrow->SetVisible( bTeamsFull );
-
-			if ( bTeamsFull )
-			{
-				// turn on animation
-				g_pClientMode->GetViewportAnimationController()->StartAnimationSequence( "TeamsFullArrowAnimate" );
-			}
-			else
-			{
-				// turn off animation
-				g_pClientMode->GetViewportAnimationController()->StartAnimationSequence( "TeamsFullArrowAnimateEnd" );
-			}
-		}
-	}
+	//if ( m_pTeamsFullLabel )
+	//{
+	//	if ( bForce || ( m_pTeamsFullLabel->IsVisible() != bTeamsFull ) )
+	//	{
+	//		m_pTeamsFullLabel->SetVisible( bTeamsFull );
+	//	}
+	//}
+	//
+	//if ( m_pTeamsFullLabelShadow )
+	//{
+	//	if ( bForce || ( m_pTeamsFullLabelShadow->IsVisible() != bTeamsFull ) )
+	//	{
+	//		m_pTeamsFullLabelShadow->SetVisible( bTeamsFull );
+	//	}
+	//}
+	//
+	//if ( !mp_allowspectators.GetBool() )
+	//{
+	//	// don't show the arrow if the server doesn't allow spectators
+	//	bTeamsFull = false;
+	//}
+	//
+	//if ( m_pTeamsFullArrow )
+	//{
+	//	if ( bForce || ( m_pTeamsFullArrow->IsVisible() != bTeamsFull ) )
+	//	{
+	//		m_pTeamsFullArrow->SetVisible( bTeamsFull );
+	//
+	//		if ( bTeamsFull )
+	//		{
+	//			// turn on animation
+	//			g_pClientMode->GetViewportAnimationController()->StartAnimationSequence( "TeamsFullArrowAnimate" );
+	//		}
+	//		else
+	//		{
+	//			// turn off animation
+	//			g_pClientMode->GetViewportAnimationController()->StartAnimationSequence( "TeamsFullArrowAnimateEnd" );
+	//		}
+	//	}
+	//}
 }
 
 //-----------------------------------------------------------------------------
@@ -785,22 +785,22 @@ void CTFTeamMenu::OnTick()
 		return;
 
 	bool bHighlander = pRules->IsInHighlanderMode();
-
-	if ( m_pHighlanderLabel )
-	{
-		if ( m_pHighlanderLabel->IsVisible() != bHighlander )
-		{
-			m_pHighlanderLabel->SetVisible( bHighlander );
-		}
-	}
-
-	if ( m_pHighlanderLabelShadow )
-	{
-		if ( m_pHighlanderLabelShadow->IsVisible() != bHighlander )
-		{
-			m_pHighlanderLabelShadow->SetVisible( bHighlander );
-		}
-	}
+	
+	//if ( m_pHighlanderLabel )
+	//{
+	//	if ( m_pHighlanderLabel->IsVisible() != bHighlander )
+	//	{
+	//		m_pHighlanderLabel->SetVisible( bHighlander );
+	//	}
+	//}
+	//
+	//if ( m_pHighlanderLabelShadow )
+	//{
+	//	if ( m_pHighlanderLabelShadow->IsVisible() != bHighlander )
+	//	{
+	//		m_pHighlanderLabelShadow->SetVisible( bHighlander );
+	//	}
+	//}
 
 	// check if teams are unbalanced
 	m_bRedDisabled = m_bBlueDisabled = false;

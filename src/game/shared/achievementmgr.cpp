@@ -512,7 +512,7 @@ void CAchievementMgr::LevelInitPreEntity()
 	Q_strncpy( m_szMap, gpGlobals->mapname.ToCStr(), ARRAYSIZE( m_szMap ) );
 #endif // CLIENT_DLL
 
-	if ( IsX360() )
+	if ( true/*IsX360()*/ )
 	{
 		// need to remove the .360 extension on the end of the map name
 		char *pExt = Q_stristr( m_szMap, ".360" );

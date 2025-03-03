@@ -968,9 +968,9 @@ void CTFFreezePanel::OnThink( void )
 //-----------------------------------------------------------------------------
 void CTFFreezePanel::ShowSnapshotPanelIn( float flTime )
 {
-#if defined (_X360 )
+//#if defined (_X360 )
 	return;
-#endif
+//#endif
 
 	m_flShowSnapshotReminderAt = gpGlobals->curtime + flTime;
 }
@@ -980,9 +980,9 @@ void CTFFreezePanel::ShowSnapshotPanelIn( float flTime )
 //-----------------------------------------------------------------------------
 void CTFFreezePanel::ShowSaveReplayPanelIn( float flTime )
 {
-#if defined (_X360 )
+//#if defined (_X360 )
 	return;
-#endif
+//#endif
 	m_flShowReplayReminderAt = gpGlobals->curtime + flTime;
 }
 
@@ -1323,49 +1323,49 @@ void CTFFreezePanelCallout::UpdateForGib( int iGib, int iCount )
 		}
 	}
 	
-#ifndef _X360
-	int wide, tall;
-	m_pGibLabel->GetContentSize( wide, tall );
-
-	// is the text wider than the label?
-	if ( wide > m_pGibLabel->GetWide() )
-	{
-		int nDiff = wide - m_pGibLabel->GetWide();
-		int x, y, w, t;
-
-		// make the label wider
-		m_pGibLabel->GetBounds( x, y, w, t );
-		m_pGibLabel->SetBounds( x, y, w + nDiff, t );
-
-		vgui::Panel *pBackground = FindChildByName( "CalloutBG" );
-		if ( pBackground )
-		{
-			// also adjust the background image
-			pBackground->GetBounds( x, y, w, t );
-			pBackground->SetBounds( x, y, w + nDiff, t );
-		}
-
-		// make ourselves bigger to accommodate the wider children
-		GetBounds( x, y, w, t );
-		SetBounds( x, y, w + nDiff, t );
-
-		// check that we haven't run off the right side of the screen
-		if ( x + GetWide() > ScreenWidth() )
-		{
-			// push ourselves to the left to fit on the screen
-			nDiff = ( x + GetWide() ) - ScreenWidth();
-			SetPos( x - nDiff, y );
-
-			// push the arrow to the right to offset moving ourselves to the left
-			vgui::ImagePanel *pArrow = dynamic_cast<ImagePanel *>( FindChildByName( "ArrowIcon" ) );
-			if ( pArrow )
-			{
-				pArrow->GetBounds( x, y, w, t );
-				pArrow->SetBounds( x + nDiff, y, w, t );
-			}
-		}
-	}
-#endif
+//#ifndef _X360
+//	int wide, tall;
+//	m_pGibLabel->GetContentSize( wide, tall );
+//
+//	// is the text wider than the label?
+//	if ( wide > m_pGibLabel->GetWide() )
+//	{
+//		int nDiff = wide - m_pGibLabel->GetWide();
+//		int x, y, w, t;
+//
+//		// make the label wider
+//		m_pGibLabel->GetBounds( x, y, w, t );
+//		m_pGibLabel->SetBounds( x, y, w + nDiff, t );
+//
+//		vgui::Panel *pBackground = FindChildByName( "CalloutBG" );
+//		if ( pBackground )
+//		{
+//			// also adjust the background image
+//			pBackground->GetBounds( x, y, w, t );
+//			pBackground->SetBounds( x, y, w + nDiff, t );
+//		}
+//
+//		// make ourselves bigger to accommodate the wider children
+//		GetBounds( x, y, w, t );
+//		SetBounds( x, y, w + nDiff, t );
+//
+//		// check that we haven't run off the right side of the screen
+//		if ( x + GetWide() > ScreenWidth() )
+//		{
+//			// push ourselves to the left to fit on the screen
+//			nDiff = ( x + GetWide() ) - ScreenWidth();
+//			SetPos( x - nDiff, y );
+//
+//			// push the arrow to the right to offset moving ourselves to the left
+//			vgui::ImagePanel *pArrow = dynamic_cast<ImagePanel *>( FindChildByName( "ArrowIcon" ) );
+//			if ( pArrow )
+//			{
+//				pArrow->GetBounds( x, y, w, t );
+//				pArrow->SetBounds( x + nDiff, y, w, t );
+//			}
+//		}
+//	}
+//#endif
 }
 
 //-----------------------------------------------------------------------------

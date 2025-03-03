@@ -108,7 +108,7 @@
 		"scaleImage"	"1"		
 	}
 
-	"MapInfoContinue" [$WIN32]
+	"MapInfoContinue" [$WIN32_old]
 	{
 		"ControlName"	"CExButton"
 		"fieldName"		"MapInfoContinue"
@@ -135,7 +135,7 @@
 		"fgcolor"		"Black"
 	}
 	
-	"MapInfoWatchIntro" [$WIN32]
+	"MapInfoWatchIntro" [$WIN32_old]
 	{
 		"ControlName"	"CExButton"
 		"fieldName"		"MapInfoWatchIntro"
@@ -160,7 +160,7 @@
 		"fgcolor"		"Black"
 	}
 	
-	"MapInfoBack" [$WIN32]
+	"MapInfoBack" [$WIN32_old]
 	{
 		"ControlName"	"CExButton"
 		"fieldName"		"MapInfoBack"
@@ -238,7 +238,7 @@
 		"PaintBackgroundType"	"0"
 	}	
 
-	"Footer" [$X360]
+	"Footer" [$WIN32]
 	{
 		"ControlName"		"CTFFooter"
 		"fieldName"			"Footer"

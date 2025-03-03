@@ -376,23 +376,23 @@ bool CFlexSceneFileManager::Init()
 		Q_snprintf( fn, sizeof( fn ), "player/%s/phonemes/phonemes_strong", pTFClasses[i] );
 		FindSceneFile( NULL, fn, true );
 
-		if ( !IsX360() )
-		{
-			Q_snprintf( fn, sizeof( fn ), "player/hwm/%s/phonemes/phonemes", pTFClasses[i] );
-			FindSceneFile( NULL, fn, true );
-			Q_snprintf( fn, sizeof( fn ), "player/hwm/%s/phonemes/phonemes_weak", pTFClasses[i] );
-			FindSceneFile( NULL, fn, true );
-			Q_snprintf( fn, sizeof( fn ), "player/hwm/%s/phonemes/phonemes_strong", pTFClasses[i] );
-			FindSceneFile( NULL, fn, true );
-		}
+		//if ( !IsX360() )
+		//{
+		//	Q_snprintf( fn, sizeof( fn ), "player/hwm/%s/phonemes/phonemes", pTFClasses[i] );
+		//	FindSceneFile( NULL, fn, true );
+		//	Q_snprintf( fn, sizeof( fn ), "player/hwm/%s/phonemes/phonemes_weak", pTFClasses[i] );
+		//	FindSceneFile( NULL, fn, true );
+		//	Q_snprintf( fn, sizeof( fn ), "player/hwm/%s/phonemes/phonemes_strong", pTFClasses[i] );
+		//	FindSceneFile( NULL, fn, true );
+		//}
 
 		Q_snprintf( fn, sizeof( fn ), "player/%s/emotion/emotion", pTFClasses[i] );
 		FindSceneFile( NULL, fn, true );
-		if ( !IsX360() )
-		{
-			Q_snprintf( fn, sizeof( fn ), "player/hwm/%s/emotion/emotion", pTFClasses[i] );
-			FindSceneFile( NULL, fn, true );
-		}
+		//if ( !IsX360() )
+		//{
+		//	Q_snprintf( fn, sizeof( fn ), "player/hwm/%s/emotion/emotion", pTFClasses[i] );
+		//	FindSceneFile( NULL, fn, true );
+		//}
 	}
 #endif
 

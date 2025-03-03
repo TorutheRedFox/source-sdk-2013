@@ -4575,7 +4575,7 @@ void C_TFPlayer::OnDataChanged( DataUpdateType_t updateType )
 			{
 				gameeventmanager->FireEventClientSide( event );
 			}
-			if ( IsX360() )
+			if ( true/*IsX360()*/ )
 			{
 				const char *pTeam = NULL;
 				switch( GetTeamNumber() )

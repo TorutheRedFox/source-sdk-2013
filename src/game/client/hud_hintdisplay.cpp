@@ -433,7 +433,7 @@ void CHudHintKeyDisplay::OnThink()
 {
 	for (int i = 0; i < m_Labels.Count(); i++)
 	{
-		if ( IsX360() && ( i & 1 ) == 0 )
+		if ( true/*IsX360()*/ && ( i & 1 ) == 0 )
 		{
 			// Don't change the fg color for buttons (even numbered labels)
 			m_Labels[i]->SetAlpha( GetFgColor().a() );
@@ -530,7 +530,7 @@ bool CHudHintKeyDisplay::SetHintText( const char *text )
 			//!! change some key names into better names
 			char friendlyName[64];
 
-			if ( IsX360() )
+			if ( true/*IsX360()*/ )
 			{
 				int iNumBinds = 0;
 

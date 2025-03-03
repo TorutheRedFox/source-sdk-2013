@@ -48,13 +48,13 @@ CTFMapInfoMenu::CTFMapInfoMenu( IViewPort *pViewPort ) : Frame( NULL, PANEL_MAPI
 
 	m_pTitle = new CExLabel( this, "MapInfoTitle", " " );
 
-#ifdef _X360
+//#ifdef _X360
 	m_pFooter = new CTFFooter( this, "Footer" );
-#else
+//#else
 	m_pContinue = new CExButton( this, "MapInfoContinue", "#TF_Continue" );
 	m_pBack = new CExButton( this, "MapInfoBack", "#TF_Back" );
 	m_pIntro = new CExButton( this, "MapInfoWatchIntro", "#TF_WatchIntro" );
-#endif
+//#endif
 
 	// info window about this map
 	m_pMapInfo = new CExRichText( this, "MapInfoText" );
@@ -104,23 +104,23 @@ void CTFMapInfoMenu::ApplySchemeSettings( vgui::IScheme *pScheme )
 	Q_strncpy( m_szMapName, mapname, sizeof( m_szMapName ) );
 	Q_strupr( m_szMapName );
 
-#ifdef _X360
+//#ifdef _X360
 	char *pExt = Q_stristr( m_szMapName, ".360" );
 	if ( pExt )
 	{
 		*pExt = '\0';
 	}
-#endif
+//#endif
 
 	LoadMapPage();
 	SetMapTitle();
 
-#ifndef _X360
+//#ifndef _X360
 	if ( m_pContinue )
 	{
 		m_pContinue->RequestFocus();
 	}
-#endif
+//#endif
 
 	SetDialogVariable( "gamemode", g_pVGuiLocalize->Find( GetMapType( m_szMapName ) ) );
 }
@@ -185,39 +185,39 @@ void CTFMapInfoMenu::CheckIntroState()
 {
 	if ( CheckForIntroMovie() && HasViewedMovieForMap() )
 	{
-#ifdef _X360
+//#ifdef _X360
 		if ( m_pFooter )
 		{
 			m_pFooter->ShowButtonLabel( "intro", true );
 		}
-#else
-		if ( m_pIntro && !m_pIntro->IsVisible() )
-		{
-			m_pIntro->SetVisible( true );
-			if ( m_pIntroHintIcon )
-			{
-				m_pIntroHintIcon->SetVisible( true );
-			}
-		}
-#endif
+//#else
+//		if ( m_pIntro && !m_pIntro->IsVisible() )
+//		{
+//			m_pIntro->SetVisible( true );
+//			if ( m_pIntroHintIcon )
+//			{
+//				m_pIntroHintIcon->SetVisible( true );
+//			}
+//		}
+//#endif
 	}
 	else
 	{
-#ifdef _X360
+//#ifdef _X360
 		if ( m_pFooter )
 		{
 			m_pFooter->ShowButtonLabel( "intro", false );
 		}
-#else
-		if ( m_pIntro && m_pIntro->IsVisible() )
-		{
-			m_pIntro->SetVisible( false );
-			if ( m_pIntroHintIcon )
-			{
-				m_pIntroHintIcon->SetVisible( false );
-			}
-		}
-#endif
+//#else
+//		if ( m_pIntro && m_pIntro->IsVisible() )
+//		{
+//			m_pIntro->SetVisible( false );
+//			if ( m_pIntroHintIcon )
+//			{
+//				m_pIntroHintIcon->SetVisible( false );
+//			}
+//		}
+//#endif
 	}
 }
 
@@ -226,29 +226,29 @@ void CTFMapInfoMenu::CheckIntroState()
 //-----------------------------------------------------------------------------
 void CTFMapInfoMenu::CheckBackContinueButtons()
 {
-#ifndef _X360
-	if ( m_pBack && m_pContinue )
-	{
-		if ( GetLocalPlayerTeam() == TEAM_UNASSIGNED )
-		{
-			m_pBack->SetVisible( true );
-			if ( m_pBackHintIcon )
-			{
-				m_pBackHintIcon->SetVisible( true );
-			}
-			m_pContinue->SetText( "#TF_Continue" );
-		}
-		else
-		{
-			m_pBack->SetVisible( false );
-			if ( m_pBackHintIcon )
-			{
-				m_pBackHintIcon->SetVisible( false );
-			}
-			m_pContinue->SetText( "#TF_Close" );
-		}
-	}
-#endif
+//#ifndef _X360
+//	if ( m_pBack && m_pContinue )
+//	{
+//		if ( GetLocalPlayerTeam() == TEAM_UNASSIGNED )
+//		{
+//			m_pBack->SetVisible( true );
+//			if ( m_pBackHintIcon )
+//			{
+//				m_pBackHintIcon->SetVisible( true );
+//			}
+//			m_pContinue->SetText( "#TF_Continue" );
+//		}
+//		else
+//		{
+//			m_pBack->SetVisible( false );
+//			if ( m_pBackHintIcon )
+//			{
+//				m_pBackHintIcon->SetVisible( false );
+//			}
+//			m_pContinue->SetText( "#TF_Close" );
+//		}
+//	}
+//#endif
 }
 
 //-----------------------------------------------------------------------------
@@ -261,11 +261,11 @@ void CTFMapInfoMenu::OnCommand( const char *command )
 	if ( !Q_strcmp( command, "back" ) )
 	{
 		 // only want to go back to the Welcome menu if we're not already on a team
-		if ( !IsX360() && ( GetLocalPlayerTeam() == TEAM_UNASSIGNED ) )
-		{
-			m_pViewPort->ShowPanel( this, false );
-			m_pViewPort->ShowPanel( PANEL_INFO, true );
-		}
+		//if ( !IsX360() && ( GetLocalPlayerTeam() == TEAM_UNASSIGNED ) )
+		//{
+		//	m_pViewPort->ShowPanel( this, false );
+		//	m_pViewPort->ShowPanel( PANEL_INFO, true );
+		//}
 	}
 	else if ( !Q_strcmp( command, "continue" ) )
 	{
@@ -281,7 +281,7 @@ void CTFMapInfoMenu::OnCommand( const char *command )
 		{
 			// On console, we may already have a team due to the lobby assigning us one.
 			// We tell the server we're done with the map info menu, and it decides what to do with us.
-			if ( IsX360() )
+			if ( true/*IsX360()*/ )
 			{
 				engine->ClientCmd( "closedwelcomemenu" );
 			}
@@ -454,11 +454,11 @@ void CTFMapInfoMenu::LoadMapPage()
 	#endif
 			// check the first character, make sure this a little-endian unicode file
 
-	#if defined( _X360 )
+	//#if defined( _X360 )
 			if ( memBlock[0] != 0xFFFE )
-	#else
-			if ( memBlock[0] != 0xFEFF )
-	#endif
+	//#else
+	//		if ( memBlock[0] != 0xFEFF )
+	//#endif
 			{
 				// its a ascii char file
 				m_pMapInfo->SetText( reinterpret_cast<char *>( memBlock ) );

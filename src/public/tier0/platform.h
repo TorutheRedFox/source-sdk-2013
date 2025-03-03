@@ -1474,7 +1474,7 @@ PLATFORM_INTERFACE bool Is64BitOS();
 
 inline const char *GetPlatformExt( void )
 {
-	return IsX360() ? ".360" : "";
+	return true/*IsX360()*/ ? ".360" : "";
 }
 
 // flat view, 6 hw threads

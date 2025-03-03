@@ -1621,7 +1621,7 @@ void CTFClientScoreBoardDialog::UpdatePlayerList()
 	}
 
 	// If we're on spectator, find a default selection
-#ifdef _X360
+//#ifdef _X360
 	if ( !bMadeSelection )
 	{
 		if ( m_pPlayerListBlue->GetItemCount() > 0 )
@@ -1633,7 +1633,7 @@ void CTFClientScoreBoardDialog::UpdatePlayerList()
 			m_pPlayerListRed->SetSelectedItem( 0 );
 		}
 	}
-#endif
+//#endif
 
 	// force the lists to PerformLayout() now so we can update our medal images after we return
  	m_pPlayerListRed->InvalidateLayout( true );
@@ -2333,7 +2333,7 @@ int	CTFClientScoreBoardDialog::HudElementKeyInput( int down, ButtonCode_t keynum
 		}
 	}
 
-#if defined ( _X360 )
+//#if defined ( _X360 )
 	SectionedListPanel *pList = GetSelectedPlayerList();
 
 	switch( keynum )
@@ -2459,8 +2459,8 @@ int	CTFClientScoreBoardDialog::HudElementKeyInput( int down, ButtonCode_t keynum
 
 					DevMsg( 1, "XShowGamerCardUI for player '%s'\n", pInfo->GetString( "name" ) );
 
-					uint64 xuid = matchmaking->PlayerIdToXuid( pInfo->GetInt( "playerIndex" ) );
-					XShowGamerCardUI( XBX_GetPrimaryUserId(), xuid );
+					//uint64 xuid = matchmaking->PlayerIdToXuid( pInfo->GetInt( "playerIndex" ) );
+					//XShowGamerCardUI( XBX_GetPrimaryUserId(), xuid );
 				}
 			}
 		}
@@ -2478,8 +2478,8 @@ int	CTFClientScoreBoardDialog::HudElementKeyInput( int down, ButtonCode_t keynum
 
 					DevMsg( 1, "XShowPlayerReviewUI for player '%s'\n", pInfo->GetString( "name" ) );
 
-					uint64 xuid = matchmaking->PlayerIdToXuid( pInfo->GetInt( "playerIndex" ) );
-					XShowPlayerReviewUI( XBX_GetPrimaryUserId(), xuid );
+					//uint64 xuid = matchmaking->PlayerIdToXuid( pInfo->GetInt( "playerIndex" ) );
+					//XShowPlayerReviewUI( XBX_GetPrimaryUserId(), xuid );
 				}
 			}
 		}
@@ -2488,7 +2488,7 @@ int	CTFClientScoreBoardDialog::HudElementKeyInput( int down, ButtonCode_t keynum
 	default:
 		break;
 	}
-#endif //_X360
+//#endif //_X360
 
 	return 1;
 }

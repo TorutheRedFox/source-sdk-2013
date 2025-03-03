@@ -1194,9 +1194,9 @@ bool C_BasePlayer::CreateMove( float flInputSampleTime, CUserCmd *pCmd )
 	}
 	else 
 	{
-#ifndef _X360
-		if ( joy_autosprint.GetBool() )
-#endif
+//#ifndef _X360
+//		if ( joy_autosprint.GetBool() )
+//#endif
 		{
 			if ( input->KeyState( &in_joyspeed ) != 0.0f )
 			{

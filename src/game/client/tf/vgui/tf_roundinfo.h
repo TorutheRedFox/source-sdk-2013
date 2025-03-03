@@ -55,11 +55,11 @@ protected:
 	CExLabel			*m_pTitle;
 	vgui::ImagePanel	*m_pMapImage;
 	
-#ifdef _X360
+//#ifdef _X360
 	CTFFooter			*m_pFooter;
-#else
-	CExButton			*m_pContinue;
-#endif
+//#else
+//	CExButton			*m_pContinue;
+//#endif
 
 	char				m_szMapImage[MAX_ROUND_IMAGE_NAME];
 

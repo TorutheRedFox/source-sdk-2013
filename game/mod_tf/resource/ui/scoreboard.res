@@ -23,21 +23,21 @@
 		"killstreak_width"	"15"
 		"killstreak_image_width" "15"
 		"stats_width"		"30"
-		"avatar_width"		"40"	[$WIN32]
-		"avatar_width"		"0"		[$X360]
-		"name_width"		"114"	[$WIN32]
-		"name_width"		"150"	[$X360]
-		"status_width"		"15"	[$WIN32]
-		"status_width"		"12"	[$X360]
-		"nemesis_width"		"15"	[$WIN32]
-		"nemesis_width"		"20"	[$X360]
-		"class_width"		"15"	[$WIN32]
-		"class_width"		"20"	[$X360]
+		"avatar_width"		"40"	[$WIN32_old]
+		"avatar_width"		"0"		[$WIN32]
+		"name_width"		"114"	[$WIN32_old]
+		"name_width"		"150"	[$WIN32]
+		"status_width"		"15"	[$WIN32_old]
+		"status_width"		"12"	[$WIN32]
+		"nemesis_width"		"15"	[$WIN32_old]
+		"nemesis_width"		"20"	[$WIN32]
+		"class_width"		"15"	[$WIN32_old]
+		"class_width"		"20"	[$WIN32]
 		"score_width"		"25"
 		"score_width_lodef"	"35"
 		"score_width_hidef"	"50"
-		"ping_width"		"23"	[$WIN32]
-		"ping_width"		"50"	[$X360]
+		"ping_width"		"23"	[$WIN32_old]
+		"ping_width"		"50"	[$WIN32]
 	}
 	"BlueScoreBG"
 	{
@@ -122,8 +122,8 @@
 		"xpos"			"10" [!$OSX]
 		"xpos"			"15" [$OSX]
 		"xpos_hidef"		"40"
-		"ypos"			"23"	[$WIN32]
-		"ypos"			"29"	[$X360]
+		"ypos"			"23"	[$WIN32_old]
+		"ypos"			"29"	[$WIN32]
 		
 		"wide"			"140"
 		"tall"			"34"
@@ -223,8 +223,8 @@
 		"xpos"			"485" [$OSX]
 		"xpos_lodef"	"466"
 		"xpos_hidef"	"508"
-		"ypos"			"23"	[$WIN32]
-		"ypos"			"29"	[$X360]
+		"ypos"			"23"	[$WIN32_old]
+		"ypos"			"29"	[$WIN32]
 		
 		"wide"			"140"
 		"tall"			"34"
@@ -329,8 +329,8 @@
 		"tall"			"20"
 		"autoResize"	"0"
 		"pinCorner"		"0"
+		"visible"		"1"	[$WIN32_old]
 		"visible"		"1"	[$WIN32]
-		"visible"		"1"	[$X360]
 		"enabled"		"1"
 		
 		if_mvm
@@ -353,8 +353,8 @@
 		"tall"			"20"
 		"autoResize"	"0"
 		"pinCorner"		"0"
-		"visible"		"1"	[$WIN32]
-		"visible"		"0"	[$X360]
+		"visible"		"1"	[$WIN32_old]
+		"visible"		"0"	[$WIN32]
 		"enabled"		"1"
 		
 		if_mvm
@@ -374,8 +374,8 @@
 		"wide"			"310"
 		"wide_lodef"	"267"
 		"wide_hidef"	"277"
-		"tall"			"280"	[$WIN32]
-		"tall"			"255"	[$X360]
+		"tall"			"280"	[$WIN32_old]
+		"tall"			"255"	[$WIN32]
 		"pinCorner"		"0"
 		"visible"		"0"
 		"enabled"		"0"
@@ -401,8 +401,8 @@
 		"wide"			"310"
 		"wide_lodef"	"267"
 		"wide_hidef"	"277"
-		"tall"			"280"	[$WIN32]
-		"tall"			"255"	[$X360]
+		"tall"			"280"	[$WIN32_old]
+		"tall"			"255"	[$WIN32]
 		"pinCorner"		"0"
 		"visible"		"0"
 		"enabled"		"0"
@@ -451,8 +451,8 @@
 		"textAlignment"		"west"
 		"xpos"			"115"
 		"xpos_hidef"	"135"
-		"ypos"			"357"	[$WIN32]
-		"ypos"			"277"	[$X360]
+		"ypos"			"357"	[$WIN32_old]
+		"ypos"			"277"	[$WIN32]
 		"zpos"			"4"
 		"wide"			"424"
 		"tall"			"20"
@@ -475,8 +475,8 @@
 		"textAlignment"		"west"
 		"xpos"			"115"
 		"xpos_hidef"	"135"
-		"ypos"			"348"	[$WIN32]
-		"ypos"			"277"	[$X360]
+		"ypos"			"348"	[$WIN32_old]
+		"ypos"			"277"	[$WIN32]
 		"zpos"			"4"
 		"wide"			"424"
 		"tall"			"20"
@@ -496,8 +496,8 @@
 		"fieldName"		"ShadedBar"
 		"xpos"			"30"
 		"xpos_hidef"	"50"
-		"ypos"			"372"	[$WIN32]
-		"ypos"			"297"	[$X360]
+		"ypos"			"372"	[$WIN32_old]
+		"ypos"			"297"	[$WIN32]
 		"zpos"			"2"
 		"wide"			"580"
 		"wide_lodef"	"539"
@@ -522,8 +522,8 @@
 		"fieldName"		"ClassImage"
 		"xpos"			"22"
 		"xpos_lodef"	"12"
-		"ypos"			"350"	[$WIN32]
-		"ypos"			"275"	[$X360]
+		"ypos"			"350"	[$WIN32_old]
+		"ypos"			"275"	[$WIN32]
 		"zpos"			"3"
 		"wide"			"92"
 		"tall"			"92"
@@ -783,8 +783,8 @@
 		"fieldName"		"HorizontalLine"
 		"xpos"			"115"
 		"xpos_lodef"	"105"
-		"ypos"			"397"	[$WIN32]
-		"ypos"			"322"	[$X360]
+		"ypos"			"397"	[$WIN32_old]
+		"ypos"			"322"	[$WIN32]
 		"zpos"			"3"
 		"wide"			"485"
 		"wide_lodef"	"434"
@@ -813,8 +813,8 @@
 		"xpos"			"440"
 		"xpos_lodef"	"399"
 		"xpos_hidef"	"439"
-		"ypos"			"377"	[$WIN32]
-		"ypos"			"302"	[$X360]
+		"ypos"			"377"	[$WIN32_old]
+		"ypos"			"302"	[$WIN32]
 		"zpos"			"3"
 		"wide"			"140"
 		"tall"			"20"
@@ -1068,7 +1068,7 @@
 			"labelText"		"#TF_ScoreBoard_KillsLabel"
 			"textAlignment"		"east"
 			"xpos"			"80"
-			"ypos"			"0"	[$WIN32]
+			"ypos"			"0"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"95"
 			"tall"			"20"
@@ -1085,7 +1085,7 @@
 			"labelText"		"#TF_ScoreBoard_DeathsLabel"
 			"textAlignment"		"east"
 			"xpos"			"80"
-			"ypos"			"10"	[$WIN32]
+			"ypos"			"10"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"95"
 			"tall"			"20"
@@ -1102,7 +1102,7 @@
 			"labelText"		"#TF_ScoreBoard_AssistsLabel"
 			"textAlignment"		"east"
 			"xpos"			"80"
-			"ypos"			"20"	[$WIN32]
+			"ypos"			"20"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"95"
 			"tall"			"20"
@@ -1119,7 +1119,7 @@
 			"labelText"		"#TF_ScoreBoard_DestructionLabel"
 			"textAlignment"		"east"
 			"xpos"			"80"
-			"ypos"			"30"	[$WIN32]
+			"ypos"			"30"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"95"
 			"tall"			"20"
@@ -1136,7 +1136,7 @@
 			"labelText"		"%kills%"
 			"textAlignment"		"west"
 			"xpos"			"180"
-			"ypos"			"0"	[$WIN32]
+			"ypos"			"0"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1153,7 +1153,7 @@
 			"labelText"		"%deaths%"
 			"textAlignment"		"west"
 			"xpos"			"180"
-			"ypos"			"10"	[$WIN32]
+			"ypos"			"10"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1189,7 +1189,7 @@
 			"labelText"		"%assists%"
 			"textAlignment"		"west"
 			"xpos"			"180"
-			"ypos"			"20"	[$WIN32]
+			"ypos"			"20"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1206,7 +1206,7 @@
 			"labelText"		"%destruction%"
 			"textAlignment"		"west"
 			"xpos"			"180"
-			"ypos"			"30"	[$WIN32]
+			"ypos"			"30"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1222,8 +1222,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_ScoreBoard_CapturesLabel"
 			"textAlignment"		"east"
-			"xpos"			"220"	[$WIN32]
-			"ypos"			"0"	[$WIN32]
+			"xpos"			"220"	[$WIN32_old]
+			"ypos"			"0"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"100"
 			"tall"			"20"
@@ -1239,8 +1239,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_ScoreBoard_DefensesLabel"
 			"textAlignment"		"east"
-			"xpos"			"220"	[$WIN32]
-			"ypos"			"10"	[$WIN32]
+			"xpos"			"220"	[$WIN32_old]
+			"ypos"			"10"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"100"
 			"tall"			"20"
@@ -1256,8 +1256,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_ScoreBoard_DominationLabel"
 			"textAlignment"		"east"
-			"xpos"			"220"	[$WIN32]
-			"ypos"			"20"	[$WIN32]
+			"xpos"			"220"	[$WIN32_old]
+			"ypos"			"20"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"100"
 			"tall"			"20"
@@ -1273,8 +1273,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_ScoreBoard_RevengeLabel"
 			"textAlignment"		"east"
-			"xpos"			"220"	[$WIN32]
-			"ypos"			"30"	[$WIN32]
+			"xpos"			"220"	[$WIN32_old]
+			"ypos"			"30"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"100"
 			"tall"			"20"
@@ -1290,8 +1290,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%captures%"
 			"textAlignment"		"west"
-			"xpos"			"325"	[$WIN32]
-			"ypos"			"0"	[$WIN32]
+			"xpos"			"325"	[$WIN32_old]
+			"ypos"			"0"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1307,8 +1307,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%defenses%"
 			"textAlignment"		"west"
-			"xpos"			"325"	[$WIN32]
-			"ypos"			"10"	[$WIN32]
+			"xpos"			"325"	[$WIN32_old]
+			"ypos"			"10"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1324,8 +1324,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%dominations%"
 			"textAlignment"		"west"
-			"xpos"			"325"	[$WIN32]
-			"ypos"			"20"	[$WIN32]
+			"xpos"			"325"	[$WIN32_old]
+			"ypos"			"20"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1341,8 +1341,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%Revenge%"
 			"textAlignment"		"west"
-			"xpos"			"325"	[$WIN32]
-			"ypos"			"30"	[$WIN32]
+			"xpos"			"325"	[$WIN32_old]
+			"ypos"			"30"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1358,10 +1358,10 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_ScoreBoard_HealingLabel"
 			"textAlignment"		"east"
-			"xpos"			"346"	[$WIN32]
-			"ypos"			"30"	[$WIN32]
+			"xpos"			"346"	[$WIN32_old]
+			"ypos"			"30"	[$WIN32_old]
 			"zpos"			"3"
-			"wide"			"95"	[$WIN32]
+			"wide"			"95"	[$WIN32_old]
 			"tall"			"20"
 			"autoResize"	"0"
 			"pinCorner"		"0"
@@ -1375,8 +1375,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_ScoreBoard_InvulnLabel"
 			"textAlignment"		"east"
-			"xpos"			"346"	[$WIN32]
-			"ypos"			"0"	[$WIN32]
+			"xpos"			"346"	[$WIN32_old]
+			"ypos"			"0"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"95"
 			"tall"			"20"
@@ -1392,10 +1392,10 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_ScoreBoard_TeleportsLabel"
 			"textAlignment"		"east"
-			"xpos"			"346"	[$WIN32]
-			"ypos"			"20"	[$WIN32]
+			"xpos"			"346"	[$WIN32_old]
+			"ypos"			"20"	[$WIN32_old]
 			"zpos"			"3"
-			"wide"			"95"	[$WIN32]
+			"wide"			"95"	[$WIN32_old]
 			"tall"			"20"
 			"autoResize"	"0"
 			"pinCorner"		"0"
@@ -1409,10 +1409,10 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_ScoreBoard_HeadshotsLabel"
 			"textAlignment"		"east"
-			"xpos"			"346"	[$WIN32]
-			"ypos"			"10"	[$WIN32]
+			"xpos"			"346"	[$WIN32_old]
+			"ypos"			"10"	[$WIN32_old]
 			"zpos"			"3"
-			"wide"			"95"	[$WIN32]
+			"wide"			"95"	[$WIN32_old]
 			"tall"			"20"
 			"autoResize"	"0"
 			"pinCorner"		"0"
@@ -1426,8 +1426,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%healing%"
 			"textAlignment"		"west"
-			"xpos"			"445"	[$WIN32]
-			"ypos"			"30"	[$WIN32]
+			"xpos"			"445"	[$WIN32_old]
+			"ypos"			"30"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1443,8 +1443,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%invulns%"
 			"textAlignment"		"west"
-			"xpos"			"445"	[$WIN32]
-			"ypos"			"0"	[$WIN32]
+			"xpos"			"445"	[$WIN32_old]
+			"ypos"			"0"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1460,8 +1460,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%teleports%"
 			"textAlignment"		"west"
-			"xpos"			"445"	[$WIN32]
-			"ypos"			"20"	[$WIN32]
+			"xpos"			"445"	[$WIN32_old]
+			"ypos"			"20"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1477,8 +1477,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%headshots%"
 			"textAlignment"		"west"
-			"xpos"			"445"	[$WIN32]
-			"ypos"			"10"	[$WIN32]
+			"xpos"			"445"	[$WIN32_old]
+			"ypos"			"10"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1494,8 +1494,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_ScoreBoard_BackstabsLabel"
 			"textAlignment"		"east"
-			"xpos"			"475"	[$WIN32]
-			"ypos"			"0"	[$WIN32]
+			"xpos"			"475"	[$WIN32_old]
+			"ypos"			"0"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"95"
 			"tall"			"20"
@@ -1510,9 +1510,9 @@
 			"fieldName"		"Backstabs"
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%backstabs%"
-			"textAlignment"		"west"		[$WIN32]
-			"xpos"			"575"	[$WIN32]
-			"ypos"			"0"	[$WIN32]
+			"textAlignment"		"west"		[$WIN32_old]
+			"xpos"			"575"	[$WIN32_old]
+			"ypos"			"0"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1528,8 +1528,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_ScoreBoard_BonusLabel"
 			"textAlignment"		"east"
-			"xpos"			"475"	[$WIN32]
-			"ypos"			"10"	[$WIN32]
+			"xpos"			"475"	[$WIN32_old]
+			"ypos"			"10"	[$WIN32_old]
 			"zpos"			"3"
 			"zpos"			"3"
 			"wide"			"95"
@@ -1545,9 +1545,9 @@
 			"fieldName"		"Bonus"
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%bonus%"
-			"textAlignment"		"west"		[$WIN32]
-			"xpos"			"575"	[$WIN32]
-			"ypos"			"10"	[$WIN32]
+			"textAlignment"		"west"		[$WIN32_old]
+			"xpos"			"575"	[$WIN32_old]
+			"ypos"			"10"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1563,8 +1563,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_Scoreboard_Support"
 			"textAlignment"	"east"
-			"xpos"			"475"	[$WIN32]
-			"ypos"			"20"	[$WIN32]
+			"xpos"			"475"	[$WIN32_old]
+			"ypos"			"20"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"95"
 			"tall"			"20"
@@ -1579,9 +1579,9 @@
 			"fieldName"		"Support"
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%support%"
-			"textAlignment"	"west"		[$WIN32]
-			"xpos"			"575"	[$WIN32]
-			"ypos"			"20"	[$WIN32]
+			"textAlignment"	"west"		[$WIN32_old]
+			"xpos"			"575"	[$WIN32_old]
+			"ypos"			"20"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1597,8 +1597,8 @@
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"#TF_Scoreboard_Damage"
 			"textAlignment"	"east"
-			"xpos"			"475"	[$WIN32]
-			"ypos"			"30"	[$WIN32]
+			"xpos"			"475"	[$WIN32_old]
+			"ypos"			"30"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"95"
 			"tall"			"20"
@@ -1613,9 +1613,9 @@
 			"fieldName"		"Damage"
 			"font"			"ScoreboardVerySmall"
 			"labelText"		"%damage%"
-			"textAlignment"	"west"		[$WIN32]
-			"xpos"			"575"	[$WIN32]
-			"ypos"			"30"	[$WIN32]
+			"textAlignment"	"west"		[$WIN32_old]
+			"xpos"			"575"	[$WIN32_old]
+			"ypos"			"30"	[$WIN32_old]
 			"zpos"			"3"
 			"wide"			"35"
 			"tall"			"20"
@@ -1626,7 +1626,7 @@
 		}
 	}
 
-	"ButtonLegendBG"		[$X360]
+	"ButtonLegendBG"		[$WIN32]
 	{
 		"ControlName"	"ImagePanel"
 		"fieldName"		"ButtonLegendBG"
@@ -1646,7 +1646,7 @@
 		"PaintBackgroundType"	"0"
 	}
 	
-	"ButtonLegend"		[$X360]
+	"ButtonLegend"		[$WIN32]
 	{
 		"ControlName"	"EditablePanel"
 		"fieldName"		"ButtonLegend"

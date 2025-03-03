@@ -93,11 +93,11 @@ static ConVar r_flashlight_version2( "r_flashlight_version2", "0", FCVAR_CHEAT |
 
 ConVar r_flashlightdepthtexture( "r_flashlightdepthtexture", "1", FCVAR_ALLOWED_IN_COMPETITIVE );
 
-#if defined( _X360 )
+//#if defined( _X360 )
 ConVar r_flashlightdepthres( "r_flashlightdepthres", "512" );
-#else
-ConVar r_flashlightdepthres( "r_flashlightdepthres", "1024" );
-#endif
+//#else
+//ConVar r_flashlightdepthres( "r_flashlightdepthres", "1024" );
+//#endif
 
 ConVar r_threaded_client_shadow_manager( "r_threaded_client_shadow_manager", "0" );
 
@@ -163,11 +163,11 @@ private:
 		INVALID_FRAGMENT_HANDLE = (FragmentHandle_t)~0,
 		TEXTURE_PAGE_SIZE	    = 1024,
 		MAX_TEXTURE_POWER    	= 8,
-#if !defined( _X360 )
-		MIN_TEXTURE_POWER	    = 4,
-#else
+//#if !defined( _X360 )
+//		MIN_TEXTURE_POWER	    = 4,
+//#else
 		MIN_TEXTURE_POWER	    = 5,	// per resolve requirements to ensure 32x32 aligned offsets
-#endif
+//#endif
 		MAX_TEXTURE_SIZE	    = (1 << MAX_TEXTURE_POWER),
 		MIN_TEXTURE_SIZE	    = (1 << MIN_TEXTURE_POWER),
 		BLOCK_SIZE			    = MAX_TEXTURE_SIZE,
@@ -2623,7 +2623,7 @@ void CClientShadowMgr::BuildFlashlight( ClientShadowHandle_t handle )
 	// For the 360, we just draw flashlights with the main geometry
 	// and bypass the entire shadow casting system.
 	ClientShadow_t &shadow = m_Shadows[handle];
-	if ( IsX360() || r_flashlight_version2.GetInt() )
+	if ( true /*IsX360()*/ || r_flashlight_version2.GetInt())
 	{
 		// This will update the matrices, but not do work to add the flashlight to surfaces
 		shadowmgr->ProjectFlashlight( shadow.m_ShadowHandle, shadow.m_WorldToShadow, 0, NULL );
@@ -3763,7 +3763,7 @@ bool CClientShadowMgr::DrawRenderToTextureShadow( unsigned short clientShadowHan
 		// Sets the viewport state
 		int x, y, w, h;
 		m_ShadowAllocator.GetTextureRect( shadow.m_ShadowTexture, x, y, w, h );
-		pRenderContext->Viewport( IsX360() ? 0 : x, IsX360() ? 0 : y, w, h ); 
+		pRenderContext->Viewport( /*IsX360()*/ true ? 0 : x, /*IsX360()*/ true ? 0 : y, w, h);
 
 		// Clear the selected viewport only (don't need to clear depth)
 		pRenderContext->ClearBuffers( true, false );

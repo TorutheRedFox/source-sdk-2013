@@ -8,7 +8,7 @@
 		"screenshot_move_panel_to_corner"	"1"
 	}
 
-	"FreezePanelBase"	[$X360]
+	"FreezePanelBase"	[$WIN32]
 	{
 		"ControlName"	"EditablePanel"
 		"fieldName"		"FreezePanelBase"
@@ -221,7 +221,7 @@
 		}
 	}		
 	
-	"FreezePanelBase"	[$WIN32]
+	"FreezePanelBase"	[$WIN32_old]
 	{
 		"ControlName"	"EditablePanel"
 		"fieldName"		"FreezePanelBase"
@@ -272,7 +272,7 @@
 			"brighttext"		"0"
 		}
 		
-		"FreezePanelHealth"		[$WIN32]
+		"FreezePanelHealth"		[$WIN32_old]
 		{
 			"ControlName"	"CTFFreezePanelHealth"
 			"fieldName"		"FreezePanelHealth"

@@ -1368,7 +1368,7 @@ void UTIL_CalculateHolidays()
 bool UTIL_IsHolidayActive( /*EHoliday*/ int eHoliday )
 {
 #ifdef USES_ECON_ITEMS
-	if ( IsX360() )
+	if ( true/*IsX360()*/ )
 		return false;
 
 	if ( !s_HolidaysCalculated )

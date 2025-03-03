@@ -4543,7 +4543,7 @@ void CTFPlayer::ManageRegularWeapons( TFPlayerClassData_t *pData )
 		GiveAmmo( GetMaxAmmo(iAmmo), iAmmo, true, kAmmoSource_Resupply );
 	}
 
-	if ( IsX360() )
+	if ( true/*IsX360()*/ )
 	{
 		ManageRegularWeaponsLegacy( pData );
 	}
@@ -7375,7 +7375,7 @@ bool CTFPlayer::ClientCommand( const CCommand &args )
 	}
 	else if ( FStrEq( pcmd, "jointeam_nomenus" ) )
 	{
-		if ( IsX360() )
+		if ( true/*IsX360()*/ )
 		{
 			if ( args.ArgC() >= 2 )
 			{
@@ -13660,7 +13660,7 @@ void CTFPlayer::StateEnterWELCOME( void )
 //=============================================================================
 	else
 	{
-		if ( !IsX360() )
+		if ( false/*!IsX360()*/ )
 		{
 			char pszWelcome[128];
 			Q_snprintf( pszWelcome, sizeof(pszWelcome), "#TF_Welcome" );

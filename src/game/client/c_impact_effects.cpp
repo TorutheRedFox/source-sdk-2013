@@ -620,9 +620,9 @@ DECLARE_CLIENT_EFFECT( "GlassImpact", GlassImpactCallback );
 //-----------------------------------------------------------------------------
 void FX_AntlionImpact( const Vector &pos, trace_t *trace )
 {
-#if defined( _X360 )
+//#if defined( _X360 )
 	return;
-#endif // _X360
+//#endif // _X360
 
 	VPROF_BUDGET( "FX_AntlionImpact", VPROF_BUDGETGROUP_PARTICLE_RENDERING );
 
@@ -1248,7 +1248,7 @@ void FX_GaussExplosion( const Vector &pos, const Vector &dir, int type )
 
 	int i;
 
-#if defined(_XBOX) || defined(_X360)
+//#if defined(_XBOX) || defined(_X360)
 
 	//
 	// XBox version
@@ -1315,58 +1315,58 @@ void FX_GaussExplosion( const Vector &pos, const Vector &dir, int type )
 
 	AddSimpleParticle( &particle, ParticleMgr()->GetPMaterial( "effects/yellowflare" ) );
 
-#else
-	
-	//
-	// PC version
-	//
-	CSmartPtr<CTrailParticles> pSparkEmitter = CTrailParticles::Create( "FX_ElectricSpark" );
-
-	if ( !pSparkEmitter )
-	{
-		Assert(0);
-		return;
-	}
-
-	PMaterialHandle	hMaterial	= pSparkEmitter->GetPMaterial( "effects/spark" );
-
-	pSparkEmitter->SetSortOrigin( pos );
-
-	pSparkEmitter->m_ParticleCollision.SetGravity( 800.0f );
-	pSparkEmitter->SetFlag( bitsPARTICLE_TRAIL_VELOCITY_DAMPEN|bitsPARTICLE_TRAIL_COLLIDE );
-
-	//Setup our collision information
-	pSparkEmitter->m_ParticleCollision.Setup( pos, &vDir, 0.8f, 128, 512, 800, 0.3f );
-
-	int numSparks = random->RandomInt( 16, 32 );
-	TrailParticle	*pParticle;
-
-	// Dump out sparks
-	for ( i = 0; i < numSparks; i++ )
-	{
-		pParticle = (TrailParticle *) pSparkEmitter->AddParticle( sizeof(TrailParticle), hMaterial, pos );
-
-		if ( pParticle == NULL )
-			return;
-
-		pParticle->m_flLifetime	= 0.0f;
-
-		vDir.Random( -0.6f, 0.6f );
-		vDir += dir;
-		VectorNormalize( vDir );
-
-		pParticle->m_flWidth		= random->RandomFloat( 1.0f, 4.0f );
-		pParticle->m_flLength		= random->RandomFloat( 0.01f, 0.1f );
-		pParticle->m_flDieTime		= random->RandomFloat( 0.25f, 1.0f );
-
-		pParticle->m_vecVelocity	= vDir * random->RandomFloat( 128, 512 );
-
-		Color32Init( pParticle->m_color, 255, 255, 255, 255 );
-	}
-
-
-	FX_ElectricSpark( pos, 1, 1, &vDir );
-#endif
+//#else
+//	
+//	//
+//	// PC version
+//	//
+//	CSmartPtr<CTrailParticles> pSparkEmitter = CTrailParticles::Create( "FX_ElectricSpark" );
+//
+//	if ( !pSparkEmitter )
+//	{
+//		Assert(0);
+//		return;
+//	}
+//
+//	PMaterialHandle	hMaterial	= pSparkEmitter->GetPMaterial( "effects/spark" );
+//
+//	pSparkEmitter->SetSortOrigin( pos );
+//
+//	pSparkEmitter->m_ParticleCollision.SetGravity( 800.0f );
+//	pSparkEmitter->SetFlag( bitsPARTICLE_TRAIL_VELOCITY_DAMPEN|bitsPARTICLE_TRAIL_COLLIDE );
+//
+//	//Setup our collision information
+//	pSparkEmitter->m_ParticleCollision.Setup( pos, &vDir, 0.8f, 128, 512, 800, 0.3f );
+//
+//	int numSparks = random->RandomInt( 16, 32 );
+//	TrailParticle	*pParticle;
+//
+//	// Dump out sparks
+//	for ( i = 0; i < numSparks; i++ )
+//	{
+//		pParticle = (TrailParticle *) pSparkEmitter->AddParticle( sizeof(TrailParticle), hMaterial, pos );
+//
+//		if ( pParticle == NULL )
+//			return;
+//
+//		pParticle->m_flLifetime	= 0.0f;
+//
+//		vDir.Random( -0.6f, 0.6f );
+//		vDir += dir;
+//		VectorNormalize( vDir );
+//
+//		pParticle->m_flWidth		= random->RandomFloat( 1.0f, 4.0f );
+//		pParticle->m_flLength		= random->RandomFloat( 0.01f, 0.1f );
+//		pParticle->m_flDieTime		= random->RandomFloat( 0.25f, 1.0f );
+//
+//		pParticle->m_vecVelocity	= vDir * random->RandomFloat( 128, 512 );
+//
+//		Color32Init( pParticle->m_color, 255, 255, 255, 255 );
+//	}
+//
+//
+//	FX_ElectricSpark( pos, 1, 1, &vDir );
+//#endif
 }
 
 class C_TEGaussExplosion : public C_TEParticleSystem

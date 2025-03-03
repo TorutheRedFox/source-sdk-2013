@@ -57,14 +57,14 @@ CTFIntroMenu::CTFIntroMenu( IViewPort *pViewPort ) : BaseClass( pViewPort )
 	m_pModel = new CModelPanel( this, "MenuBG" );
 	m_pCaptionLabel = new CExLabel( this, "VideoCaption", "" );
 
-#ifdef _X360
+//#ifdef _X360
 	m_pFooter = new CTFFooter( this, "Footer" );
-#else
+//#else
 	m_pBack = new CExButton( this, "Back", "" );
 	m_pOK = new CExButton( this, "Skip", "" );
 	m_pReplayVideo = new CExButton( this, "ReplayVideo", "" );
 	m_pContinue = new CExButton( this, "Continue", "" );
-#endif
+//#endif
 
 	m_iCurrentCaption = 0;
 	m_flVideoStartTime = 0;

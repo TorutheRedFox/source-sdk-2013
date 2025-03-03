@@ -27,7 +27,7 @@ ConVar r_depthoverlay( "r_depthoverlay", "0", FCVAR_CHEAT, "Replaces opaque obje
 int g_viewscene_refractUpdateFrame = 0;
 bool g_bAllowMultipleRefractUpdatesPerScenePerFrame = false;
 
-#if defined( _X360 )
+//#if defined( _X360 )
 class CAllowMultipleRefractsLogic : public CAutoGameSystem
 {
 public:
@@ -39,7 +39,7 @@ public:
 	}
 };
 static CAllowMultipleRefractsLogic s_AllowMultipleRefractsLogic;
-#endif
+//#endif
 
 void ViewTransform( const Vector &worldSpace, Vector &viewSpace )
 {

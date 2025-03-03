@@ -837,10 +837,10 @@ CHudCloseCaption::CHudCloseCaption( const char *pElementName )
 
 	vgui::ivgui()->AddTickSignal( GetVPanel(), 0 );
 
-	if ( !IsX360() )
-	{
-		g_pVGuiLocalize->AddFile( "resource/closecaption_%language%.txt", "GAME", true );
-	}
+	//if ( !IsX360() )
+	//{
+	//	g_pVGuiLocalize->AddFile( "resource/closecaption_%language%.txt", "GAME", true );
+	//}
 
 	HOOK_HUD_MESSAGE( CHudCloseCaption, CloseCaption );
 
@@ -2522,14 +2522,14 @@ void CHudCloseCaption::MsgFunc_CloseCaption(bf_read &msg)
 	bool bIsMale = flagbyte & CLOSE_CAPTION_GENDER_MALE ? true : false;
 	bool bIsFemale = flagbyte & CLOSE_CAPTION_GENDER_FEMALE ? true : false;
 
-	if ( warnonmissing && !IsX360() )
-	{
-		wchar_t *pcheck = g_pVGuiLocalize->Find( tokenname );
-		if ( !pcheck )
-		{
-			Warning( "No caption found for '%s'\n", tokenname );
-		}
-	}
+	//if ( warnonmissing && !IsX360() )
+	//{
+	//	wchar_t *pcheck = g_pVGuiLocalize->Find( tokenname );
+	//	if ( !pcheck )
+	//	{
+	//		Warning( "No caption found for '%s'\n", tokenname );
+	//	}
+	//}
 
 	char szTestName[ 512 ];
 	if ( bIsMale || bIsFemale )
@@ -2781,21 +2781,21 @@ void OnCaptionLanguageChanged( IConVar *pConVar, const char *pOldString, float f
 	// If it's not the default, load the language on top of the user's default language
 	if ( Q_strlen( var.GetString() ) > 0 && Q_stricmp( var.GetString(), uilanguage ) )
 	{
-		if ( !IsX360() )
-		{
-			if ( g_pFullFileSystem->FileExists( fn ) )
-			{
-				g_pVGuiLocalize->AddFile( fn, "GAME", true );
-			}
-			else
-			{
-				char fallback[ 512 ];
-				Q_snprintf( fallback, sizeof( fallback ), "resource/closecaption_%s.txt", uilanguage );
-
-				Msg( "%s not found\n", fn );
-				Msg( "%s will be used\n", fallback );
-			}
-		}
+		//if ( !IsX360() )
+		//{
+		//	if ( g_pFullFileSystem->FileExists( fn ) )
+		//	{
+		//		g_pVGuiLocalize->AddFile( fn, "GAME", true );
+		//	}
+		//	else
+		//	{
+		//		char fallback[ 512 ];
+		//		Q_snprintf( fallback, sizeof( fallback ), "resource/closecaption_%s.txt", uilanguage );
+		//
+		//		Msg( "%s not found\n", fn );
+		//		Msg( "%s will be used\n", fallback );
+		//	}
+		//}
 
 		if ( hudCloseCaption )
 		{

@@ -163,14 +163,14 @@ void CTFStatsSummaryPanel::Init( void )
 	m_pLeaderboardTitle = NULL;
 	m_pContributedPanel = NULL;
 
-#ifdef _X360
+//#ifdef _X360
 	m_pFooter = new CTFFooter( this, "Footer" );
 	m_bShowBackButton = false;
-#else
-	m_pNextTipButton = new vgui::Button( this, "NextTipButton", "" );	
-	m_pResetStatsButton = new vgui::Button( this, "ResetStatsButton", "" );
-	m_pCloseButton = new vgui::Button( this, "CloseButton", "" );	
-#endif
+//#else
+//	m_pNextTipButton = new vgui::Button( this, "NextTipButton", "" );	
+//	m_pResetStatsButton = new vgui::Button( this, "ResetStatsButton", "" );
+//	m_pCloseButton = new vgui::Button( this, "CloseButton", "" );	
+//#endif
 
 	m_pBarChartComboBoxA->AddActionSignalTarget( this );
 	m_pBarChartComboBoxB->AddActionSignalTarget( this );
@@ -205,13 +205,13 @@ CTFStatsSummaryPanel::~CTFStatsSummaryPanel()
 //-----------------------------------------------------------------------------
 void CTFStatsSummaryPanel::ShowModal()
 {
-#ifdef _X360
+//#ifdef _X360
 	m_bInteractive = false;
 	m_bShowBackButton = true;
-#else
-	// we are in interactive mode, enable controls
-	m_bInteractive = true;
-#endif
+//#else
+//	// we are in interactive mode, enable controls
+//	m_bInteractive = true;
+//#endif
 
 	SetParent( enginevgui->GetPanel( PANEL_GAMEUIDLL ) );
 	UpdateDialog();
@@ -239,26 +239,26 @@ void CTFStatsSummaryPanel::PerformLayout()
 {
 	BaseClass::PerformLayout();
 
-#ifndef _X360
-	if ( m_pTipImage && m_pTipText )
-	{
-		int iX,iY;
-		m_pTipImage->GetPos(iX,iY);
-		int iTX, iTY;
-		m_pTipText->GetPos(iTX, iTY);
-		m_pTipText->SetPos( iX + m_pTipImage->GetWide() + XRES(8), iTY );
-	}
-
-	if ( m_pNextTipButton )
-	{
-		m_pNextTipButton->SizeToContents();
-	}
-
-	if ( m_pResetStatsButton )
-	{
-		m_pResetStatsButton->SizeToContents();
-	}
-#endif
+//#ifndef _X360
+//	if ( m_pTipImage && m_pTipText )
+//	{
+//		int iX,iY;
+//		m_pTipImage->GetPos(iX,iY);
+//		int iTX, iTY;
+//		m_pTipText->GetPos(iTX, iTY);
+//		m_pTipText->SetPos( iX + m_pTipImage->GetWide() + XRES(8), iTY );
+//	}
+//
+//	if ( m_pNextTipButton )
+//	{
+//		m_pNextTipButton->SizeToContents();
+//	}
+//
+//	if ( m_pResetStatsButton )
+//	{
+//		m_pResetStatsButton->SizeToContents();
+//	}
+//#endif
 }
 
 //-----------------------------------------------------------------------------
@@ -286,24 +286,24 @@ void CTFStatsSummaryPanel::OnCommand( const char *command )
 		SetVisible( false );
 		SetParent( (VPANEL) NULL );
 
-#ifdef _X360
+//#ifdef _X360
 		SetDefaultSelections();
 		m_bShowBackButton = true;
-#endif
+//#endif
 	}
-#ifndef _X360
-	else if ( 0 == Q_stricmp( command, "resetstatsbutton" ) )
-	{
-		QueryBox *qb = new QueryBox( "#GameUI_Confirm", "#TF_ConfirmResetStats" );
-		if (qb != NULL)
-		{
-			qb->SetOKCommand(new KeyValues("DoResetStats") );
-			qb->AddActionSignalTarget(this);
-			qb->MoveToFront();
-			qb->DoModal();
-		}
-	}
-#endif
+//#ifndef _X360
+//	else if ( 0 == Q_stricmp( command, "resetstatsbutton" ) )
+//	{
+//		QueryBox *qb = new QueryBox( "#GameUI_Confirm", "#TF_ConfirmResetStats" );
+//		if (qb != NULL)
+//		{
+//			qb->SetOKCommand(new KeyValues("DoResetStats") );
+//			qb->AddActionSignalTarget(this);
+//			qb->MoveToFront();
+//			qb->DoModal();
+//		}
+//	}
+//#endif
 	else if ( 0 == Q_stricmp( command, "nexttip" ) )
 	{
 		UpdateTip();
@@ -462,7 +462,7 @@ void CTFStatsSummaryPanel::ApplySchemeSettings(vgui::IScheme *pScheme)
 //-----------------------------------------------------------------------------
 void CTFStatsSummaryPanel::OnKeyCodePressed( KeyCode code )
 {
-	if ( IsX360() )
+	if ( true/*IsX360()*/ )
 	{
 		if ( code == KEY_XBUTTON_A || code == STEAMCONTROLLER_A )
 		{
@@ -523,8 +523,8 @@ void CTFStatsSummaryPanel::ShowMapInfo( bool bShowMapInfo, bool bIsMVM /*= false
 		m_pMainBackground->SetVisible( !bShowMapInfo );
 	}
 	m_pPlayerData->SetVisible( bIsMVM || !bShowMapInfo );
-	m_pNextTipButton->SetVisible( m_bInteractive && !bShowMapInfo );
-	m_pResetStatsButton->SetVisible( m_bInteractive && !bShowMapInfo );
+	//m_pNextTipButton->SetVisible( m_bInteractive && !bShowMapInfo );
+	//m_pResetStatsButton->SetVisible( m_bInteractive && !bShowMapInfo );
 
 	if ( m_pMapInfoPanel )
 	{
@@ -861,8 +861,8 @@ void CTFStatsSummaryPanel::UpdateDialog()
 			ClearMapLabel();
 
 			m_pPlayerData->SetVisible( false );
-			m_pNextTipButton->SetVisible( false );
-			m_pResetStatsButton->SetVisible( false );
+			//m_pNextTipButton->SetVisible( false );
+			//m_pResetStatsButton->SetVisible( false );
 			m_pInteractiveHeaders->SetVisible( false );
 			m_pNonInteractiveHeaders->SetVisible( false );
 			m_pTipText->SetVisible( false );
@@ -912,13 +912,13 @@ void CTFStatsSummaryPanel::UpdateDialog()
 
 	ClearMapLabel();
 
-#ifdef _X360
+//#ifdef _X360
 	if ( m_pFooter )
 	{
 		m_pFooter->ShowButtonLabel( "nexttip", m_bShowBackButton );
 		m_pFooter->ShowButtonLabel( "back", m_bShowBackButton );
 	}
-#endif
+//#endif
 
 	// fill out bar charts
 	UpdateBarCharts();
@@ -1099,52 +1099,52 @@ void CTFStatsSummaryPanel::UpdateTip()
 void CTFStatsSummaryPanel::UpdateControls()
 {
 	// show or hide controls depending on what mode we're in
-#ifndef _X360
-	bool bShowPlayerData = ( m_bInteractive || m_iTotalSpawns > 0 );
-#else
+//#ifndef _X360
+//	bool bShowPlayerData = ( m_bInteractive || m_iTotalSpawns > 0 );
+//#else
 	bool bShowPlayerData = ( m_bInteractive || m_bShowBackButton || m_iTotalSpawns > 0 );
-#endif
+//#endif
 	m_pPlayerData->SetVisible( bShowPlayerData );
 	m_pInteractiveHeaders->SetVisible( m_bInteractive );
 	m_pNonInteractiveHeaders->SetVisible( !m_bInteractive );
 	m_pTipText->SetVisible( bShowPlayerData );
 	m_pTipImage->SetVisible( bShowPlayerData );
 
-	if ( !IsX360() )
-	{
-		if ( !m_bInteractive )
-		{
-			char szTemp[128];
+	//if ( !IsX360() )
+	//{
+	//	if ( !m_bInteractive )
+	//	{
+	//		char szTemp[128];
+	//
+	//		// update our non-interactive headers to match the current combo box selections
+	//		Label *pLabel = dynamic_cast<Label *>( m_pNonInteractiveHeaders->FindChildByName( "BarChartLabelA" ) );
+	//		if ( pLabel && m_pBarChartComboBoxA )
+	//		{
+	//			m_pBarChartComboBoxA->GetItemText( m_pBarChartComboBoxA->GetActiveItem(), szTemp, sizeof( szTemp ) );
+	//			pLabel->SetText( szTemp );
+	//		}
+	//
+	//		pLabel = dynamic_cast<Label *>( m_pNonInteractiveHeaders->FindChildByName( "BarChartLabelB" ) );
+	//		if ( pLabel && m_pBarChartComboBoxB )
+	//		{
+	//			m_pBarChartComboBoxB->GetItemText( m_pBarChartComboBoxB->GetActiveItem(), szTemp, sizeof( szTemp ) );
+	//			pLabel->SetText( szTemp );
+	//		}
+	//
+	//		pLabel = dynamic_cast<Label *>( m_pNonInteractiveHeaders->FindChildByName( "OverallRecordLabel" ) );
+	//		if ( pLabel && m_pClassComboBox )
+	//		{
+	//			m_pClassComboBox->GetItemText( m_pClassComboBox->GetActiveItem(), szTemp, sizeof( szTemp ) );
+	//			pLabel->SetText( szTemp );
+	//		}
+	//	}
+	//}
 
-			// update our non-interactive headers to match the current combo box selections
-			Label *pLabel = dynamic_cast<Label *>( m_pNonInteractiveHeaders->FindChildByName( "BarChartLabelA" ) );
-			if ( pLabel && m_pBarChartComboBoxA )
-			{
-				m_pBarChartComboBoxA->GetItemText( m_pBarChartComboBoxA->GetActiveItem(), szTemp, sizeof( szTemp ) );
-				pLabel->SetText( szTemp );
-			}
-
-			pLabel = dynamic_cast<Label *>( m_pNonInteractiveHeaders->FindChildByName( "BarChartLabelB" ) );
-			if ( pLabel && m_pBarChartComboBoxB )
-			{
-				m_pBarChartComboBoxB->GetItemText( m_pBarChartComboBoxB->GetActiveItem(), szTemp, sizeof( szTemp ) );
-				pLabel->SetText( szTemp );
-			}
-
-			pLabel = dynamic_cast<Label *>( m_pNonInteractiveHeaders->FindChildByName( "OverallRecordLabel" ) );
-			if ( pLabel && m_pClassComboBox )
-			{
-				m_pClassComboBox->GetItemText( m_pClassComboBox->GetActiveItem(), szTemp, sizeof( szTemp ) );
-				pLabel->SetText( szTemp );
-			}
-		}
-	}
-
-#ifndef _X360
-	m_pNextTipButton->SetVisible( m_bInteractive );
-	m_pResetStatsButton->SetVisible( m_bInteractive );
-	m_pCloseButton->SetVisible( m_bInteractive && !m_bEmbedded );
-#endif
+//#ifndef _X360
+//	m_pNextTipButton->SetVisible( m_bInteractive );
+//	m_pResetStatsButton->SetVisible( m_bInteractive );
+//	m_pCloseButton->SetVisible( m_bInteractive && !m_bEmbedded );
+//#endif
 }
 
 //-----------------------------------------------------------------------------

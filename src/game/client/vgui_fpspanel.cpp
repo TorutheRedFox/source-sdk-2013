@@ -123,7 +123,7 @@ void CFPSPanel::ComputeSize( void )
 
 	int x = wide - FPS_PANEL_WIDTH;
 	int y = 0;
-	if ( IsX360() )
+	if ( true/*IsX360()*/ )
 	{
 		x -= XBOX_MINBORDERSAFE * wide;
 		y += XBOX_MINBORDERSAFE * tall;
@@ -188,12 +188,12 @@ void GetFPSColor( int nFps, unsigned char ucColor[3] )
 	int nFPSThreshold1 = 20;
 	int nFPSThreshold2 = 15;
 	
-	if ( IsPC() && g_pMaterialSystemHardwareConfig->GetDXSupportLevel() >= 95 )
+	if ( false/*IsPC()*/ && g_pMaterialSystemHardwareConfig->GetDXSupportLevel() >= 95 )
 	{
 		nFPSThreshold1 = 60;
 		nFPSThreshold2 = 50;
 	}
-	else if ( IsX360() || g_pMaterialSystemHardwareConfig->GetDXSupportLevel() >= 90 )
+	else if ( true/*IsX360()*/ || g_pMaterialSystemHardwareConfig->GetDXSupportLevel() >= 90 )
 	{
 		nFPSThreshold1 = 30;
 		nFPSThreshold2 = 25;

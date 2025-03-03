@@ -79,9 +79,9 @@
 
 #include "econ_gcmessages.h"
 
-#if defined( _X360 )
+//#if defined( _X360 )
 #include "tf_clientscoreboard.h"
-#endif
+//#endif
 
 #include "gc_clientsystem.h"
 #include "tf_gcmessages.h"
@@ -374,9 +374,9 @@ ClientModeTFNormal::ClientModeTFNormal()
 	m_lastServerConnectTime = 0;
 	m_pTeamGoalTournament = NULL;
 
-#if defined( _X360 )
+//#if defined( _X360 )
 	m_pScoreboard = NULL;
-#endif
+//#endif
 	
 #if !defined(NO_STEAM)
 	m_CallbackScreenshotRequested.Register( this, &ClientModeTFNormal::OnScreenshotRequested );
@@ -466,10 +466,10 @@ void ClientModeTFNormal::Init()
 		}		
 	}
 
-#if defined( _X360 )
+//#if defined( _X360 )
 	m_pScoreboard = (CTFClientScoreBoardDialog *)( gViewPortInterface->FindPanelByName( PANEL_SCOREBOARD ) );
 	Assert( m_pScoreboard );
-#endif
+//#endif
 
 	ListenForGameEvent( "localplayer_changeclass" );
 
@@ -1459,7 +1459,7 @@ int	ClientModeTFNormal::HudElementKeyInput( int down, ButtonCode_t keynum, const
 {
 	// Let scoreboard handle input first because on X360 we need gamertags and
 	// gamercards accessible at all times when gamertag is visible.
-#if defined( _X360 )
+//#if defined( _X360 )
 	if ( m_pScoreboard )
 	{
 		if ( !m_pScoreboard->HudElementKeyInput( down, keynum, pszCurrentBinding ) )
@@ -1467,7 +1467,7 @@ int	ClientModeTFNormal::HudElementKeyInput( int down, ButtonCode_t keynum, const
 			return 0;
 		}
 	}
-#endif
+//#endif
 
 	// Applies basic tags if we're going to take a screenshot
 	ScreenshotTaggingKeyInput( down, keynum, pszCurrentBinding );
@@ -1574,10 +1574,10 @@ int	ClientModeTFNormal::HudElementKeyInput( int down, ButtonCode_t keynum, const
 	if ( ArenaClassLayoutKeyInput( down, keynum, pszCurrentBinding ) == true )
 		return 0;
 
-#ifndef _X360
-	if ( ShouldScoreBoardHandleKeyInput( down, keynum, pszCurrentBinding ) )
-		return 0;
-#endif // !360
+//#ifndef _X360
+//	if ( ShouldScoreBoardHandleKeyInput( down, keynum, pszCurrentBinding ) )
+//		return 0;
+//#endif // !360
 
 	return BaseClass::HudElementKeyInput( down, keynum, pszCurrentBinding );
 }
@@ -1587,7 +1587,7 @@ int	ClientModeTFNormal::HudElementKeyInput( int down, ButtonCode_t keynum, const
 //-----------------------------------------------------------------------------
 int ClientModeTFNormal::HandleSpectatorKeyInput( int down, ButtonCode_t keynum, const char *pszCurrentBinding )
 {
-#if defined( _X360 )
+//#if defined( _X360 )
 	// On X360 when we have scoreboard up in spectator menu we cannot
 	// steal any input because gamertags must be selectable and gamercards
 	// must be accessible.
@@ -1597,7 +1597,7 @@ int ClientModeTFNormal::HandleSpectatorKeyInput( int down, ButtonCode_t keynum, 
 	{
 		return 1;
 	}
-#endif
+//#endif
 
 	// @note Tom Bui: Coaching, so override all input
 	C_TFPlayer *pLocalPlayer = C_TFPlayer::GetLocalTFPlayer();	

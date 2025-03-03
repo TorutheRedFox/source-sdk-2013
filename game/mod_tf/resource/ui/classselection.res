@@ -137,8 +137,8 @@
 		"visible"			"1"
 		"enabled"			"1"
 		"tabPosition"		"0"
-		"labelText"			"1"	[$WIN32]
-		"labelText"			""		[$X360]
+		"labelText"			"1"	[$WIN32_old]
+		"labelText"			""		[$WIN32]
 		"textAlignment"		"south-west"
 		"Command"			"select 1"
 		"Default"			"0"
@@ -201,8 +201,8 @@
 		"visible"			"1"
 		"enabled"			"1"
 		"tabPosition"		"0"
-		"labelText"			"2"	[$WIN32]
-		"labelText"			""		[$X360]
+		"labelText"			"2"	[$WIN32_old]
+		"labelText"			""		[$WIN32]
 		"textAlignment"		"south-west"
 		"Command"			"select 3"
 		"Default"			"0"
@@ -265,8 +265,8 @@
 		"visible"			"1"
 		"enabled"			"1"
 		"tabPosition"		"0"
-		"labelText"			"3"	[$WIN32]
-		"labelText"			""		[$X360]
+		"labelText"			"3"	[$WIN32_old]
+		"labelText"			""		[$WIN32]
 		"textAlignment"		"south-west"
 		"Command"			"select 7"
 		"Default"			"0"
@@ -354,8 +354,8 @@
 		"visible"			"1"
 		"enabled"			"1"
 		"tabPosition"		"0"
-		"labelText"			"4"	[$WIN32]
-		"labelText"			""		[$X360]
+		"labelText"			"4"	[$WIN32_old]
+		"labelText"			""		[$WIN32]
 		"textAlignment"		"south-west"
 		"Command"			"select 4"
 		"Default"			"0"
@@ -416,8 +416,8 @@
 		"visible"			"1"
 		"enabled"			"1"
 		"tabPosition"		"0"
-		"labelText"			"5"	[$WIN32]
-		"labelText"			""		[$X360]
+		"labelText"			"5"	[$WIN32_old]
+		"labelText"			""		[$WIN32]
 		"textAlignment"		"south-west"
 		"Command"			"select 6"
 		"Default"			"0"
@@ -477,8 +477,8 @@
 		"visible"			"1"
 		"enabled"			"1"
 		"tabPosition"		"0"
-		"labelText"			"6"	[$WIN32]
-		"labelText"			""		[$X360]
+		"labelText"			"6"	[$WIN32_old]
+		"labelText"			""		[$WIN32]
 		"textAlignment"		"south-west"
 		"Command"			"select 9"
 		"Default"			"0"
@@ -567,8 +567,8 @@
 		"visible"			"1"
 		"enabled"			"1"
 		"tabPosition"		"0"
-		"labelText"			"7"	[$WIN32]
-		"labelText"			""		[$X360]
+		"labelText"			"7"	[$WIN32_old]
+		"labelText"			""		[$WIN32]
 		"textAlignment"		"south-west"
 		"Command"			"select 5"
 		"Default"			"0"
@@ -630,8 +630,8 @@
 		"visible"			"1"
 		"enabled"			"1"
 		"tabPosition"		"0"
-		"labelText"			"8"	[$WIN32]
-		"labelText"			""		[$X360]
+		"labelText"			"8"	[$WIN32_old]
+		"labelText"			""		[$WIN32]
 		"textAlignment"		"south-west"
 		"Command"			"select 2"
 		"Default"			"0"
@@ -693,8 +693,8 @@
 		"visible"			"1"
 		"enabled"			"1"
 		"tabPosition"		"0"
-		"labelText"			"9"	[$WIN32]
-		"labelText"			""		[$X360]
+		"labelText"			"9"	[$WIN32_old]
+		"labelText"			""		[$WIN32]
 		"textAlignment"		"south-west"
 		"Command"			"select 8"
 		"Default"			"0"
@@ -739,7 +739,7 @@
 		}				
 	}	
 
-	"CancelButton" [$WIN32] 
+	"CancelButton" [$WIN32_old] 
 	{
 		"ControlName"	"CExButton"
 		"fieldName"		"CancelButton"
@@ -760,7 +760,7 @@
 		"fgcolor_override" "200 80 60 255"
 	}
 	
-	"EditLoadoutButton" [$WIN32] 
+	"EditLoadoutButton" [$WIN32_old] 
 	{
 		"ControlName"	"CExButton"
 		"fieldName"		"EditLoadoutButton"
@@ -780,7 +780,7 @@
 		"font"			"HudFontSmallBold"
 	}
 
-	"ResetButton" [$WIN32] 
+	"ResetButton" [$WIN32_old] 
 	{
 		"ControlName"	"CExButton"
 		"fieldName"		"ResetButton"
@@ -905,7 +905,7 @@
 		"PaintBackgroundType"	"0"
 	}		
 	
-	"Footer" [$X360]
+	"Footer" [$WIN32]
 	{
 		"ControlName"		"CTFFooter"
 		"fieldName"			"Footer"
@@ -949,7 +949,7 @@
 		}
 	}
 	
-	"localPlayerImage" [$WIN32]
+	"localPlayerImage" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"localPlayerImage"
@@ -989,7 +989,7 @@
 		"draw_corner_height" 	"5"	
 	}
 	
-	"countImage0" [$WIN32]
+	"countImage0" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"countImage0"
@@ -1004,7 +1004,7 @@
 		"scaleImage"	"1"	
 	}							
 	
-	"countImage1" [$WIN32]
+	"countImage1" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"countImage1"
@@ -1019,7 +1019,7 @@
 		"scaleImage"	"1"	
 	}
 	
-	"countImage2" [$WIN32]
+	"countImage2" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"countImage2"
@@ -1034,7 +1034,7 @@
 		"scaleImage"	"1"	
 	}
 	
-	"countImage3" [$WIN32]
+	"countImage3" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"countImage3"
@@ -1049,7 +1049,7 @@
 		"scaleImage"	"1"	
 	}
 	
-	"countImage4" [$WIN32]
+	"countImage4" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"countImage4"
@@ -1064,7 +1064,7 @@
 		"scaleImage"	"1"	
 	}
 	
-	"countImage5" [$WIN32]
+	"countImage5" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"countImage5"
@@ -1079,7 +1079,7 @@
 		"scaleImage"	"1"	
 	}
 	
-	"countImage6" [$WIN32]
+	"countImage6" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"countImage6"
@@ -1094,7 +1094,7 @@
 		"scaleImage"	"1"	
 	}
 	
-	"countImage7" [$WIN32]
+	"countImage7" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"countImage7"
@@ -1109,7 +1109,7 @@
 		"scaleImage"	"1"	
 	}
 	
-	"countImage8" [$WIN32]
+	"countImage8" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"countImage8"
@@ -1124,7 +1124,7 @@
 		"scaleImage"	"1"	
 	}
 	
-	"countImage9" [$WIN32]
+	"countImage9" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"countImage9"
@@ -1139,7 +1139,7 @@
 		"scaleImage"	"1"	
 	}
 	
-	"countImage10" [$WIN32]
+	"countImage10" [$WIN32_old]
 	{
 		"ControlName"	"CTFImagePanel"
 		"fieldName"		"countImage10"
@@ -1154,7 +1154,7 @@
 		"scaleImage"	"1"	
 	}
 	
-	"CountLabel" [$WIN32]
+	"CountLabel" [$WIN32_old]
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"CountLabel"
@@ -1174,7 +1174,7 @@
 		"fgcolor"		"TanLight"
 	}
 	
-	"numScout" [$WIN32]
+	"numScout" [$WIN32_old]
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"numScout"
@@ -1194,7 +1194,7 @@
 		"fgcolor"		"TanLight"
 	}	
 	
-	"numSoldier" [$WIN32]
+	"numSoldier" [$WIN32_old]
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"numSoldier"
@@ -1214,7 +1214,7 @@
 		"fgcolor"		"TanLight"
 	}		
 	
-	"numPyro" [$WIN32]
+	"numPyro" [$WIN32_old]
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"numPyro"
@@ -1234,7 +1234,7 @@
 		"fgcolor"		"TanLight"
 	}			
 	
-	"numDemoman" [$WIN32]
+	"numDemoman" [$WIN32_old]
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"numDemoman"
@@ -1254,7 +1254,7 @@
 		"fgcolor"		"TanLight"
 	}				
 	
-	"numHeavy" [$WIN32]
+	"numHeavy" [$WIN32_old]
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"numHeavy"
@@ -1274,7 +1274,7 @@
 		"fgcolor"		"TanLight"
 	}					
 	
-	"numEngineer" [$WIN32]
+	"numEngineer" [$WIN32_old]
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"numEngineer"
@@ -1294,7 +1294,7 @@
 		"fgcolor"		"TanLight"
 	}						
 	
-	"numMedic" [$WIN32]
+	"numMedic" [$WIN32_old]
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"numMedic"
@@ -1314,7 +1314,7 @@
 		"fgcolor"		"TanLight"
 	}							
 	
-	"numSniper" [$WIN32]
+	"numSniper" [$WIN32_old]
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"numSniper"
@@ -1334,7 +1334,7 @@
 		"fgcolor"		"TanLight"
 	}						
 	
-	"numSpy" [$WIN32]
+	"numSpy" [$WIN32_old]
 	{
 		"ControlName"	"CExLabel"
 		"fieldName"		"numSpy"

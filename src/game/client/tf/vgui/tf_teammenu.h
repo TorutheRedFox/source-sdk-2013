@@ -66,9 +66,9 @@ public:
 	void Update();
 	void ShowPanel( bool bShow );
 
-#ifdef _X360
+//#ifdef _X360
 	CON_COMMAND_MEMBER_F( CTFTeamMenu, "join_team", Join_Team, "Send a jointeam command", 0 );
-#endif
+//#endif
 
 
 	bool IsBlueTeamDisabled(){ return m_bBlueDisabled; }
@@ -104,24 +104,24 @@ private:
 	CTFTeamButton	*m_pSpecTeamButton;
 	CExLabel		*m_pSpecLabel;
 
-#ifdef _X360
+//#ifdef _X360
 	CTFFooter		*m_pFooter;
-#else
-	CExButton		*m_pCancelButton;
-
-	CExLabel		*m_pHighlanderLabel;
-	CExLabel		*m_pHighlanderLabelShadow;
-	CExLabel		*m_pTeamsFullLabel;
-	CExLabel		*m_pTeamsFullLabelShadow;
-	CTFImagePanel	*m_pTeamsFullArrow;
-
-	CSCHintIcon		*m_pCancelHintIcon;
-	CSCHintIcon		*m_pJoinBluHintIcon;
-	CSCHintIcon		*m_pJoinRedHintIcon;
-	CSCHintIcon		*m_pJoinAutoHintIcon;
-	CSCHintIcon		*m_pJoinSpectatorsHintIcon;
-
-#endif
+//#else
+//	CExButton		*m_pCancelButton;
+//
+//	CExLabel		*m_pHighlanderLabel;
+//	CExLabel		*m_pHighlanderLabelShadow;
+//	CExLabel		*m_pTeamsFullLabel;
+//	CExLabel		*m_pTeamsFullLabelShadow;
+//	CTFImagePanel	*m_pTeamsFullArrow;
+//
+//	CSCHintIcon		*m_pCancelHintIcon;
+//	CSCHintIcon		*m_pJoinBluHintIcon;
+//	CSCHintIcon		*m_pJoinRedHintIcon;
+//	CSCHintIcon		*m_pJoinAutoHintIcon;
+//	CSCHintIcon		*m_pJoinSpectatorsHintIcon;
+//
+//#endif
 
 	bool m_bRedDisabled;
 	bool m_bBlueDisabled;

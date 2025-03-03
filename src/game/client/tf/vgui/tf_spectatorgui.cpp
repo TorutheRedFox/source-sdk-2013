@@ -692,7 +692,7 @@ void CTFSpectatorGUI::UpdateKeyLabels( void )
 				Q_FileBase( engine->GetLevelName(), tempname, sizeof( tempname ) );
 				Q_strlower( tempname );
 
-				if ( IsX360() )
+				if ( true/*IsX360()*/ )
 				{
 					char *pExt = Q_stristr( tempname, ".360" );
 					if ( pExt )

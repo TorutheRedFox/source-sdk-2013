@@ -4530,10 +4530,10 @@ void CRendering3dView::DrawTranslucentRenderables( bool bInSkybox, bool bShadowD
 		switch ( g_CurrentViewID )
 		{				 
 		case VIEW_MAIN:
-#ifdef _X360
+//#ifdef _X360
 		case VIEW_INTRO_CAMERA:
 		case VIEW_INTRO_PLAYER:
-#endif
+//#endif
 			UpdateFullScreenDepthTexture();
 			break;
 

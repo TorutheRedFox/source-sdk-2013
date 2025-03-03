@@ -50,12 +50,12 @@ CTFArenaTeamMenu::CTFArenaTeamMenu( IViewPort *pViewPort ) : CTeamMenu( pViewPor
 	m_pSpecTeamButton = new CTFTeamButton( this, "teambutton3" );
 	m_pSpecLabel = new CExLabel( this, "TeamMenuSpectate", "" );
 
-#ifdef _X360
+//#ifdef _X360
 	m_pFooter = new CTFFooter( this, "Footer" );
-#else
-	m_pCancelButton = new CExButton( this, "CancelButton", "#TF_Cancel" );
-	m_pJoinAutoHintIcon = m_pJoinSpectatorsHintIcon = m_pCancelHintIcon = nullptr;
-#endif
+//#else
+//	m_pCancelButton = new CExButton( this, "CancelButton", "#TF_Cancel" );
+//	m_pJoinAutoHintIcon = m_pJoinSpectatorsHintIcon = m_pCancelHintIcon = nullptr;
+//#endif
 
 	vgui::ivgui()->AddTickSignal( GetVPanel() );
 
@@ -204,43 +204,43 @@ void CTFArenaTeamMenu::Update( void )
 
 	if ( pLocalPlayer && ( pLocalPlayer->GetTeamNumber() != TEAM_UNASSIGNED ) )
 	{
-#ifdef _X360
+//#ifdef _X360
 		if ( m_pFooter )
 		{
 			m_pFooter->ShowButtonLabel( "cancel", true );
 		}
-#else
-		if ( m_pCancelButton )
-		{
-			m_pCancelButton->SetVisible( true );
-			if ( m_pCancelHintIcon )
-			{
-				m_pCancelHintIcon->SetVisible( true );
-			}
-		}
-#endif
+//#else
+//		if ( m_pCancelButton )
+//		{
+//			m_pCancelButton->SetVisible( true );
+//			if ( m_pCancelHintIcon )
+//			{
+//				m_pCancelHintIcon->SetVisible( true );
+//			}
+//		}
+//#endif
 	}
 	else
 	{
-#ifdef _X360
+//#ifdef _X360
 		if ( m_pFooter )
 		{
 			m_pFooter->ShowButtonLabel( "cancel", false );
 		}
-#else
-		if ( m_pCancelButton && m_pCancelButton->IsVisible() )
-		{
-			m_pCancelButton->SetVisible( false );
-			if ( m_pCancelHintIcon )
-			{
-				m_pCancelHintIcon->SetVisible( false );
-			}
-		}
-#endif
+//#else
+//		if ( m_pCancelButton && m_pCancelButton->IsVisible() )
+//		{
+//			m_pCancelButton->SetVisible( false );
+//			if ( m_pCancelHintIcon )
+//			{
+//				m_pCancelHintIcon->SetVisible( false );
+//			}
+//		}
+//#endif
 	}
 }
 
-#ifdef _X360
+//#ifdef _X360
 //-----------------------------------------------------------------------------
 // Purpose: 
 //-----------------------------------------------------------------------------
@@ -253,7 +253,7 @@ void CTFArenaTeamMenu::Join_Team( const CCommand &args )
 		OnCommand( cmd );
 	}
 }
-#endif
+//#endif
 
 //-----------------------------------------------------------------------------
 // Purpose: chooses and loads the text page to display that describes mapName map

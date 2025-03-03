@@ -31,9 +31,9 @@ public:
 	void Update();
 	void ShowPanel( bool bShow );
 
-#ifdef _X360
+//#ifdef _X360
 	CON_COMMAND_MEMBER_F( CTFTeamMenu, "join_team", Join_Team, "Send a jointeam command", 0 );
-#endif
+//#endif
 
 protected:
 	virtual void ApplySchemeSettings(vgui::IScheme *pScheme);
@@ -54,11 +54,11 @@ private:
 	CTFTeamButton	*m_pSpecTeamButton;
 	CExLabel		*m_pSpecLabel;
 
-#ifdef _X360
+//#ifdef _X360
 	CTFFooter		*m_pFooter;
-#else
-	CExButton		*m_pCancelButton;
-#endif
+//#else
+//	CExButton		*m_pCancelButton;
+//#endif
 
 	CSCHintIcon		*m_pCancelHintIcon;
 	CSCHintIcon		*m_pJoinAutoHintIcon;

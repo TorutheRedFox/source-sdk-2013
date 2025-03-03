@@ -102,10 +102,10 @@
 		"font_minmode"	"DefaultVerySmall"
 		"xpos"			"34"
 		"xpos_minmode"	"30"
-		"ypos"			"17"	[$WIN32]
-		"ypos_minmode"	"12"	[$WIN32]
-		"ypos"			"22"	[$X360]
-		"ypos_hidef"		"25"	[$X360]
+		"ypos"			"17"	[$WIN32_old]
+		"ypos_minmode"	"12"	[$WIN32_old]
+		"ypos"			"22"	[$WIN32]
+		"ypos_hidef"		"25"	[$WIN32]
 		"zpos"			"1"
 		"wide"			"280"
 		"tall"			"15"

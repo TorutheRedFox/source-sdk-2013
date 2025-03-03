@@ -25,9 +25,9 @@ class CHudEurekaEffectTeleportMenu;
 class CHudMenuTauntSelection;
 class CHudInspectPanel;
 class CHudUpgradePanel;
-#if defined( _X360 )
+//#if defined( _X360 )
 class CTFClientScoreBoardDialog;
-#endif
+//#endif
 
 class ClientModeTFNormal : public ClientModeShared 
 {
@@ -160,9 +160,9 @@ private:
 	void					AskFavoriteOrBlacklist() const;
 	void					RemoveFilesInPath( const char *pszPath ) const;
 
-#if defined( _X360 )
+//#if defined( _X360 )
 	CTFClientScoreBoardDialog	*m_pScoreboard;
-#endif
+//#endif
 };
 
 inline const char *ClientModeTFNormal::GetLastConnectedServerName( void ) const

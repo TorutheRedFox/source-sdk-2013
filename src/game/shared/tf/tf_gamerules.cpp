@@ -995,7 +995,7 @@ bool IsCustomGameMode()
 // This version can be used outside of gameplay, ie., for matchmaking
 bool TF_IsHolidayActive( /*EHoliday*/ int eHoliday )
 {
-	if ( IsX360() || tf_force_holidays_off.GetBool() )
+	if ( true/*IsX360()*/ || tf_force_holidays_off.GetBool() )
 		return false;
 
 	if ( BIsCvarIndicatingHolidayIsActive( tf_forced_holiday.GetInt(), eHoliday ) )
@@ -17030,7 +17030,7 @@ int	CTFGameRules::CalcPlayerSupportScore( RoundStats_t *pRoundStats, int iPlayer
 //-----------------------------------------------------------------------------
 bool CTFGameRules::IsBirthday( void ) const
 {
-	if ( IsX360() )
+	if ( true/*IsX360()*/ )
 		return false;
 
 	return tf_birthday.GetBool() || IsHolidayActive( kHoliday_TFBirthday );
@@ -19081,75 +19081,75 @@ const char *GetMapType( const char *mapName )
 		}
 	}
 
-	if ( !IsX360() )
-	{
-		// we haven't found a "friendly" map name, so let's just clean up what we have
-		if ( !Q_strnicmp( mapName, "cp_", 3 ) )
-		{
-			return "#Gametype_CP";
-		}
-		else if ( !Q_strnicmp( mapName, "tc_", 3 ) )
-		{
-			return "#TF_TerritoryControl";
-		}
-		else if ( !Q_strnicmp( mapName, "pl_", 3 ) ) 
-		{
-			return "#Gametype_Escort";
-		}
-		else if ( !Q_strnicmp( mapName, "plr_", 4 ) ) 
-		{
-			return "#Gametype_EscortRace";
-		}
-		else if ( !Q_strnicmp( mapName, "ad_", 3 ) )
-		{
-			return "#TF_AttackDefend";
-		}
-		else if ( !Q_strnicmp( mapName, "ctf_", 4 ) )
-		{
-			return "#Gametype_CTF";
-		}
-		else if ( !Q_strnicmp( mapName, "koth_", 5 ) )
-		{
-			return "#Gametype_Koth";
-		}
-		else if ( !Q_strnicmp( mapName, "arena_", 6 ) )
-		{
-			return "#Gametype_Arena";
-		}
-		else if ( !Q_strnicmp( mapName, "sd_", 3 ) )
-		{
-			return "#Gametype_SD";
-		}
-#ifdef TF_RAID_MODE
-		else if ( !Q_strnicmp( mapName, "raid_", 5 ) )
-		{
-			return "#Gametype_Raid";
-		}
-#endif // TF_RAID_MODE
-		else if ( !Q_strnicmp( mapName, "mvm_", 4 ) )
-		{
-			return "#Gametype_MVM";
-		}
-		else if ( !Q_strnicmp( mapName, "pass_", 5 ) )
-		{
-			return "#GameType_Passtime";
-		}
-		else if ( !Q_strnicmp( mapName, "rd_", 3 ) )
-		{
-			return "#Gametype_RobotDestruction";
-		}
-		else if ( !Q_strnicmp( mapName, "pd_", 3 ) )
-		{
-			return "#Gametype_PlayerDestruction";
-		}
-		else
-		{
-			if ( TFGameRules() )
-			{
-				return TFGameRules()->GetGameTypeName();
-			}
-		}
-	}
+//	if ( !IsX360() )
+//	{
+//		// we haven't found a "friendly" map name, so let's just clean up what we have
+//		if ( !Q_strnicmp( mapName, "cp_", 3 ) )
+//		{
+//			return "#Gametype_CP";
+//		}
+//		else if ( !Q_strnicmp( mapName, "tc_", 3 ) )
+//		{
+//			return "#TF_TerritoryControl";
+//		}
+//		else if ( !Q_strnicmp( mapName, "pl_", 3 ) ) 
+//		{
+//			return "#Gametype_Escort";
+//		}
+//		else if ( !Q_strnicmp( mapName, "plr_", 4 ) ) 
+//		{
+//			return "#Gametype_EscortRace";
+//		}
+//		else if ( !Q_strnicmp( mapName, "ad_", 3 ) )
+//		{
+//			return "#TF_AttackDefend";
+//		}
+//		else if ( !Q_strnicmp( mapName, "ctf_", 4 ) )
+//		{
+//			return "#Gametype_CTF";
+//		}
+//		else if ( !Q_strnicmp( mapName, "koth_", 5 ) )
+//		{
+//			return "#Gametype_Koth";
+//		}
+//		else if ( !Q_strnicmp( mapName, "arena_", 6 ) )
+//		{
+//			return "#Gametype_Arena";
+//		}
+//		else if ( !Q_strnicmp( mapName, "sd_", 3 ) )
+//		{
+//			return "#Gametype_SD";
+//		}
+//#ifdef TF_RAID_MODE
+//		else if ( !Q_strnicmp( mapName, "raid_", 5 ) )
+//		{
+//			return "#Gametype_Raid";
+//		}
+//#endif // TF_RAID_MODE
+//		else if ( !Q_strnicmp( mapName, "mvm_", 4 ) )
+//		{
+//			return "#Gametype_MVM";
+//		}
+//		else if ( !Q_strnicmp( mapName, "pass_", 5 ) )
+//		{
+//			return "#GameType_Passtime";
+//		}
+//		else if ( !Q_strnicmp( mapName, "rd_", 3 ) )
+//		{
+//			return "#Gametype_RobotDestruction";
+//		}
+//		else if ( !Q_strnicmp( mapName, "pd_", 3 ) )
+//		{
+//			return "#Gametype_PlayerDestruction";
+//		}
+//		else
+//		{
+//			if ( TFGameRules() )
+//			{
+//				return TFGameRules()->GetGameTypeName();
+//			}
+//		}
+//	}
 
 	return "";
 }

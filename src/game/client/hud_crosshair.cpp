@@ -106,7 +106,7 @@ bool CHudCrosshair::ShouldDraw( void )
 	*/
 
 	// draw a crosshair only if alive or spectating in eye
-	if ( IsX360() )
+	if (true/*IsX360()*/)
 	{
 		bNeedsDraw = m_pCrosshair && 
 			!engine->IsDrawingLoadingImage() &&

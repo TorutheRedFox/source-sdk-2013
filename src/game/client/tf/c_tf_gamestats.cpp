@@ -194,35 +194,35 @@ bool C_CTFGameStats::AddDataForSend( KeyValues *pKV, StatSendType_t sendType )
 bool C_CTFGameStats::Init( void )
 {
 	// If we are on the PC and have access to all the interfaces we need
-	if ( !IsX360() && engine && vgui::system() && steamapicontext && steamapicontext->SteamUtils() )
-	{
-		// We want to track the country code to help with localization. The countrycode is empty when testing on SteamBeta, so we won't get
-		// data until users in the wild play
-		const char * countryCode = steamapicontext->SteamUtils()->GetIPCountry();
-		if ( countryCode != NULL )
-		{
-			V_strncpy( m_szCountryCode, countryCode, ARRAYSIZE( m_szCountryCode ) );
-		}
-
-		// Now lets get the text language that Steam is in (If the game supports the language, then the UI is changed to that language).
-		engine->GetUILanguage( m_szTextLanguage, sizeof( m_szTextLanguage ) );
-		
-		V_strcpy_safe( m_szAudioLanguage, steamapicontext->SteamApps()->GetCurrentGameLanguage() );
-
-		m_currentSession.m_SessionStart = GetSteamWorksSGameStatsUploader().GetTimeSinceEpoch();
-
-		ListenForGameEvent( "server_spawn" );
-//		ListenForGameEvent( "host_quit" );
-		ListenForGameEvent( "player_stats_updated" );
-		ListenForGameEvent( "teamplay_round_win" );
-		ListenForGameEvent( "teamplay_round_active" );
-		ListenForGameEvent( "player_changeclass" );
-		ListenForGameEvent( "player_hurt" );
-		ListenForGameEvent( "client_disconnect" );
-
-		// A client session lasts from when the application starts to when it is exited.
-		GetSteamWorksSGameStatsUploader().StartSession();
-	}
+	//if ( !IsX360() && engine && vgui::system() && steamapicontext && steamapicontext->SteamUtils() )
+	//{
+	//	// We want to track the country code to help with localization. The countrycode is empty when testing on SteamBeta, so we won't get
+	//	// data until users in the wild play
+	//	const char * countryCode = steamapicontext->SteamUtils()->GetIPCountry();
+	//	if ( countryCode != NULL )
+	//	{
+	//		V_strncpy( m_szCountryCode, countryCode, ARRAYSIZE( m_szCountryCode ) );
+	//	}
+	//
+	//	// Now lets get the text language that Steam is in (If the game supports the language, then the UI is changed to that language).
+	//	engine->GetUILanguage( m_szTextLanguage, sizeof( m_szTextLanguage ) );
+	//	
+	//	V_strcpy_safe( m_szAudioLanguage, steamapicontext->SteamApps()->GetCurrentGameLanguage() );
+	//
+	//	m_currentSession.m_SessionStart = GetSteamWorksSGameStatsUploader().GetTimeSinceEpoch();
+	//
+	//	ListenForGameEvent( "server_spawn" );
+//	//	ListenForGameEvent( "host_quit" );
+	//	ListenForGameEvent( "player_stats_updated" );
+	//	ListenForGameEvent( "teamplay_round_win" );
+	//	ListenForGameEvent( "teamplay_round_active" );
+	//	ListenForGameEvent( "player_changeclass" );
+	//	ListenForGameEvent( "player_hurt" );
+	//	ListenForGameEvent( "client_disconnect" );
+	//
+	//	// A client session lasts from when the application starts to when it is exited.
+	//	GetSteamWorksSGameStatsUploader().StartSession();
+	//}
 
 	return true;
 }

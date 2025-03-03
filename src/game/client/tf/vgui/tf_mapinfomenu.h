@@ -63,16 +63,16 @@ protected:
 	CExLabel			*m_pTitle;
 	CExRichText			*m_pMapInfo;
 
-#ifdef _X360
+//#ifdef _X360
 	CTFFooter			*m_pFooter;
-#else
+//#else
 	CExButton			*m_pContinue;
 	CExButton			*m_pBack;
 	CExButton			*m_pIntro;
 	CSCHintIcon			*m_pContinueHintIcon;
 	CSCHintIcon			*m_pBackHintIcon;
 	CSCHintIcon			*m_pIntroHintIcon;
-#endif
+//#endif
 
 	vgui::ImagePanel	*m_pMapImage;
 

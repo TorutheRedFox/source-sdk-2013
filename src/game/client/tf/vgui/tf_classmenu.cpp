@@ -456,9 +456,9 @@ CTFClassMenu::CTFClassMenu( IViewPort *pViewPort )
 	m_iClassMenuKey = BUTTON_CODE_INVALID;
 	m_iCurrentClassIndex = TF_CLASS_HEAVYWEAPONS;
 
-#ifdef _X360
+//#ifdef _X360
 	m_pFooter = new CTFFooter( this, "Footer" );
-#endif
+//#endif
 
 	m_pTFPlayerModelPanel = NULL;
 	m_pSelectAClassLabel = NULL;
@@ -467,31 +467,31 @@ CTFClassMenu::CTFClassMenu( IViewPort *pViewPort )
 
 	Q_memset( m_pClassButtons, 0, sizeof( m_pClassButtons ) );
 
-#ifndef _X360
-	char tempName[MAX_PATH];
-	for ( int i = 0 ; i < CLASS_COUNT_IMAGES ; ++i )
-	{
-		Q_snprintf( tempName, sizeof( tempName ), "countImage%d", i );
-		m_ClassCountImages[i] = new CTFImagePanel( this, tempName );
-	}
-
-	m_pCountLabel = NULL;
-
-	m_pLocalPlayerImage = new CTFImagePanel( this, "localPlayerImage" );
-	m_pLocalPlayerBG = new CTFImagePanel( this, "localPlayerBG" );
-	m_iLocalPlayerClass = TEAM_UNASSIGNED;
-
-	m_pClassButtons[TF_CLASS_SCOUT] = new CExImageButton( this, "scout", "", this );
-	m_pClassButtons[TF_CLASS_SOLDIER] = new CExImageButton( this, "soldier", "", this );
-	m_pClassButtons[TF_CLASS_PYRO] = new CExImageButton( this, "pyro", "", this );
-	m_pClassButtons[TF_CLASS_DEMOMAN] = new CExImageButton( this, "demoman", "", this );
-	m_pClassButtons[TF_CLASS_MEDIC] = new CExImageButton( this, "medic", "", this );
-	m_pClassButtons[TF_CLASS_HEAVYWEAPONS] = new CExImageButton( this, "heavyweapons", "", this );
-	m_pClassButtons[TF_CLASS_SNIPER] = new CExImageButton( this, "sniper", "", this );
-	m_pClassButtons[TF_CLASS_ENGINEER] = new CExImageButton( this, "engineer", "", this );
-	m_pClassButtons[TF_CLASS_SPY] = new CExImageButton( this, "spy", "", this );
-	m_pClassButtons[TF_CLASS_RANDOM] = new CExImageButton( this, "random", "", this );
-#endif
+//#ifndef _X360
+//	char tempName[MAX_PATH];
+//	for ( int i = 0 ; i < CLASS_COUNT_IMAGES ; ++i )
+//	{
+//		Q_snprintf( tempName, sizeof( tempName ), "countImage%d", i );
+//		m_ClassCountImages[i] = new CTFImagePanel( this, tempName );
+//	}
+//
+//	m_pCountLabel = NULL;
+//
+//	m_pLocalPlayerImage = new CTFImagePanel( this, "localPlayerImage" );
+//	m_pLocalPlayerBG = new CTFImagePanel( this, "localPlayerBG" );
+//	m_iLocalPlayerClass = TEAM_UNASSIGNED;
+//
+//	m_pClassButtons[TF_CLASS_SCOUT] = new CExImageButton( this, "scout", "", this );
+//	m_pClassButtons[TF_CLASS_SOLDIER] = new CExImageButton( this, "soldier", "", this );
+//	m_pClassButtons[TF_CLASS_PYRO] = new CExImageButton( this, "pyro", "", this );
+//	m_pClassButtons[TF_CLASS_DEMOMAN] = new CExImageButton( this, "demoman", "", this );
+//	m_pClassButtons[TF_CLASS_MEDIC] = new CExImageButton( this, "medic", "", this );
+//	m_pClassButtons[TF_CLASS_HEAVYWEAPONS] = new CExImageButton( this, "heavyweapons", "", this );
+//	m_pClassButtons[TF_CLASS_SNIPER] = new CExImageButton( this, "sniper", "", this );
+//	m_pClassButtons[TF_CLASS_ENGINEER] = new CExImageButton( this, "engineer", "", this );
+//	m_pClassButtons[TF_CLASS_SPY] = new CExImageButton( this, "spy", "", this );
+//	m_pClassButtons[TF_CLASS_RANDOM] = new CExImageButton( this, "random", "", this );
+//#endif
 
 	m_pEditLoadoutButton = NULL;
 	m_nBaseMusicGuid = -1;
@@ -585,14 +585,14 @@ void CTFClassMenu::PerformLayout()
 {
 	BaseClass::PerformLayout();
 
-#ifndef _X360
-	m_pCountLabel = dynamic_cast< CExLabel * >( FindChildByName( "CountLabel" ) );
-
-	if ( m_pCountLabel )
-	{
-		m_pCountLabel->SizeToContents();
-	}
-#endif
+//#ifndef _X360
+//	m_pCountLabel = dynamic_cast< CExLabel * >( FindChildByName( "CountLabel" ) );
+//
+//	if ( m_pCountLabel )
+//	{
+//		m_pCountLabel->SizeToContents();
+//	}
+//#endif
 }
 
 //-----------------------------------------------------------------------------
@@ -1048,35 +1048,35 @@ void CTFClassMenu::Update()
 	// Force them to pick a class if they haven't picked one yet.
 	if ( ( pLocalPlayer && pLocalPlayer->m_Shared.GetDesiredPlayerClassIndex() != TF_CLASS_UNDEFINED ) )
 	{
-#ifdef _X360
+//#ifdef _X360
 		if ( m_pFooter )
 		{
 			m_pFooter->ShowButtonLabel( "cancel", true );
 		}
-#else
-		SetCancelButtonVisible( true );
-
-		if ( TFGameRules() && TFGameRules()->IsInHighlanderMode() )
-		{
-			SetVisibleButton( "ResetButton", true );
-		}
-		else
-		{
-			SetVisibleButton( "ResetButton", false );
-		}
-#endif
+//#else
+//		SetCancelButtonVisible( true );
+//
+//		if ( TFGameRules() && TFGameRules()->IsInHighlanderMode() )
+//		{
+//			SetVisibleButton( "ResetButton", true );
+//		}
+//		else
+//		{
+//			SetVisibleButton( "ResetButton", false );
+//		}
+//#endif
 	}
 	else
 	{
-#ifdef _X360
+//#ifdef _X360
 		if ( m_pFooter )
 		{
 			m_pFooter->ShowButtonLabel( "cancel", false );
 		}
-#else
-		SetCancelButtonVisible( false );
-		SetVisibleButton( "ResetButton", false );
-#endif
+//#else
+//		SetCancelButtonVisible( false );
+//		SetVisibleButton( "ResetButton", false );
+//#endif
 	}
 }
 
@@ -1131,7 +1131,7 @@ void CTFClassMenu::OnTick( void )
 	if ( !IsVisible() )
 		return;
 
-#ifndef _X360
+//#ifndef _X360
 	C_TFPlayer *pLocalPlayer = C_TFPlayer::GetLocalTFPlayer();
 
 	// Force them to pick a class if they haven't picked one yet.
@@ -1143,7 +1143,7 @@ void CTFClassMenu::OnTick( void )
 
 	UpdateClassCounts();
 
-#endif
+//#endif
 
 	BaseClass::OnTick();
 }
@@ -1406,165 +1406,165 @@ int g_ClassDefinesRemap[] = {
 
 void CTFClassMenu::UpdateNumClassLabels( int iTeam )
 {
-#ifndef _X360
-	int nTotalCount = 0;
-
-	// count how many of each class there are
-	if ( !g_TF_PR )
-		return;
-
-	if ( iTeam < FIRST_GAME_TEAM || iTeam >= TF_TEAM_COUNT ) // invalid team number
-		return;
-
-	C_TFPlayer *pLocalPlayer = C_TFPlayer::GetLocalTFPlayer();
-
-	bool bSpectator = pLocalPlayer && pLocalPlayer->GetTeamNumber() == TEAM_SPECTATOR;
-
-	int iLocalPlayerClass = TF_CLASS_UNDEFINED;
-	if ( pLocalPlayer )
-	{
-		iLocalPlayerClass = pLocalPlayer->m_Shared.GetDesiredPlayerClassIndex();
-	}
-
-	if ( iLocalPlayerClass == TF_CLASS_UNDEFINED )
-	{
-		m_iLocalPlayerClass = iLocalPlayerClass;
-
-		if ( m_pLocalPlayerImage && m_pLocalPlayerImage->IsVisible() )
-		{
-			m_pLocalPlayerImage->SetVisible( false );
-		}
-
-		if ( m_pLocalPlayerBG && m_pLocalPlayerBG->IsVisible() )
-		{
-			m_pLocalPlayerBG->SetVisible( false );
-		}
-	}
-
-	for( int i = TF_FIRST_NORMAL_CLASS ; i <= TF_LAST_NORMAL_CLASS ; i++ )
-	{
-		if ( bSpectator == true )
-		{
-			SetDialogVariable( g_sDialogVariables[i], "" );
-			continue;
-		}
-
-		int classCount = g_TF_PR->GetCountForPlayerClass( iTeam, g_ClassDefinesRemap[i], false );
-		int iClassLimit = TFGameRules()->GetClassLimit( g_ClassDefinesRemap[i] );
-
-		if ( iClassLimit != NO_CLASS_LIMIT )
-		{
-			if ( classCount >= iClassLimit )
-			{
-				if ( classCount > 0 )
-				{
-					wchar_t	wTemp[32];
-					wchar_t wzCount[10];
-					_snwprintf( wzCount, ARRAYSIZE( wzCount ), L"%d", classCount );
-					g_pVGuiLocalize->ConstructString_safe( wTemp, g_pVGuiLocalize->Find("TF_ClassLimitHit"), 1, wzCount );
-					SetDialogVariable( g_sDialogVariables[i], wTemp );
-				}
-				else
-				{
-					SetDialogVariable( g_sDialogVariables[i], g_pVGuiLocalize->Find("TF_ClassLimitHit_None") );
-				}
-			}
-			else
-			{
-				wchar_t	wTemp[32];
-				wchar_t wzCount[10];
-				_snwprintf( wzCount, ARRAYSIZE( wzCount ), L"%d", classCount );
-				wchar_t wzMax[10];
-				_snwprintf( wzMax, ARRAYSIZE( wzMax ), L"%d", iClassLimit );
-				g_pVGuiLocalize->ConstructString_safe( wTemp, g_pVGuiLocalize->Find("TF_ClassLimitUnder"), 2, wzCount, wzMax );
-				SetDialogVariable( g_sDialogVariables[i], wTemp );
-			}
-		}
-		else if ( classCount > 0 )
-		{
-			SetDialogVariable( g_sDialogVariables[i], classCount );
-		}
-		else
-		{
-			SetDialogVariable( g_sDialogVariables[i], "" );
-		}
-
-		if ( g_ClassDefinesRemap[i] == iLocalPlayerClass )
-		{
-			// take 1 off the count for the images since the local player has their own image already
-			if ( classCount > 0 )
-			{
-				classCount--;
-			}
-
-			if ( m_pLocalPlayerImage )
-			{
-				if ( !m_pLocalPlayerImage->IsVisible() )
-				{
-					m_pLocalPlayerImage->SetVisible( true );
-				}
-
-				if ( m_iLocalPlayerClass != iLocalPlayerClass )
-				{
-					m_iLocalPlayerClass = iLocalPlayerClass;
-					m_pLocalPlayerImage->SetImage( iTeam == TF_TEAM_BLUE ? g_sClassImagesBlue[i] : g_sClassImagesRed[i] );
-				}
-			}
-
-			if ( m_pLocalPlayerBG && !m_pLocalPlayerBG->IsVisible() )
-			{
-				m_pLocalPlayerBG->SetVisible( true );
-			}
-		}
-
-		if ( nTotalCount < CLASS_COUNT_IMAGES )
-		{
-			for ( int j = 0 ; j < classCount ; ++j )
-			{
-				CTFImagePanel *pImage = m_ClassCountImages[nTotalCount];
-				if ( pImage )
-				{
-					pImage->SetVisible( true );
-					pImage->SetImage( iTeam == TF_TEAM_BLUE ? g_sClassImagesBlue[i] : g_sClassImagesRed[i] );
-				}
-
-				nTotalCount++;
-				if ( nTotalCount >= CLASS_COUNT_IMAGES )
-				{
-					break;
-				}
-			}
-		}
-	}
-	
-	if ( nTotalCount == 0 )
-	{
-		// no classes for our team yet
-		if ( m_pCountLabel && m_pCountLabel->IsVisible() )
-		{
-			m_pCountLabel->SetVisible( false );
-		}
-	}
-	else
-	{
-		if ( m_pCountLabel && !m_pCountLabel->IsVisible() )
-		{
-			m_pCountLabel->SetVisible( true );
-		}
-	}
-
-	// turn off any unused images
-	while ( nTotalCount < CLASS_COUNT_IMAGES )
-	{
-		CTFImagePanel *pImage = m_ClassCountImages[nTotalCount];
-		if ( pImage )
-		{
-			pImage->SetVisible( false );
-		}
-
-		nTotalCount++;
-	}
-#endif
+//#ifndef _X360
+//	int nTotalCount = 0;
+//
+//	// count how many of each class there are
+//	if ( !g_TF_PR )
+//		return;
+//
+//	if ( iTeam < FIRST_GAME_TEAM || iTeam >= TF_TEAM_COUNT ) // invalid team number
+//		return;
+//
+//	C_TFPlayer *pLocalPlayer = C_TFPlayer::GetLocalTFPlayer();
+//
+//	bool bSpectator = pLocalPlayer && pLocalPlayer->GetTeamNumber() == TEAM_SPECTATOR;
+//
+//	int iLocalPlayerClass = TF_CLASS_UNDEFINED;
+//	if ( pLocalPlayer )
+//	{
+//		iLocalPlayerClass = pLocalPlayer->m_Shared.GetDesiredPlayerClassIndex();
+//	}
+//
+//	if ( iLocalPlayerClass == TF_CLASS_UNDEFINED )
+//	{
+//		m_iLocalPlayerClass = iLocalPlayerClass;
+//
+//		if ( m_pLocalPlayerImage && m_pLocalPlayerImage->IsVisible() )
+//		{
+//			m_pLocalPlayerImage->SetVisible( false );
+//		}
+//
+//		if ( m_pLocalPlayerBG && m_pLocalPlayerBG->IsVisible() )
+//		{
+//			m_pLocalPlayerBG->SetVisible( false );
+//		}
+//	}
+//
+//	for( int i = TF_FIRST_NORMAL_CLASS ; i <= TF_LAST_NORMAL_CLASS ; i++ )
+//	{
+//		if ( bSpectator == true )
+//		{
+//			SetDialogVariable( g_sDialogVariables[i], "" );
+//			continue;
+//		}
+//
+//		int classCount = g_TF_PR->GetCountForPlayerClass( iTeam, g_ClassDefinesRemap[i], false );
+//		int iClassLimit = TFGameRules()->GetClassLimit( g_ClassDefinesRemap[i] );
+//
+//		if ( iClassLimit != NO_CLASS_LIMIT )
+//		{
+//			if ( classCount >= iClassLimit )
+//			{
+//				if ( classCount > 0 )
+//				{
+//					wchar_t	wTemp[32];
+//					wchar_t wzCount[10];
+//					_snwprintf( wzCount, ARRAYSIZE( wzCount ), L"%d", classCount );
+//					g_pVGuiLocalize->ConstructString_safe( wTemp, g_pVGuiLocalize->Find("TF_ClassLimitHit"), 1, wzCount );
+//					SetDialogVariable( g_sDialogVariables[i], wTemp );
+//				}
+//				else
+//				{
+//					SetDialogVariable( g_sDialogVariables[i], g_pVGuiLocalize->Find("TF_ClassLimitHit_None") );
+//				}
+//			}
+//			else
+//			{
+//				wchar_t	wTemp[32];
+//				wchar_t wzCount[10];
+//				_snwprintf( wzCount, ARRAYSIZE( wzCount ), L"%d", classCount );
+//				wchar_t wzMax[10];
+//				_snwprintf( wzMax, ARRAYSIZE( wzMax ), L"%d", iClassLimit );
+//				g_pVGuiLocalize->ConstructString_safe( wTemp, g_pVGuiLocalize->Find("TF_ClassLimitUnder"), 2, wzCount, wzMax );
+//				SetDialogVariable( g_sDialogVariables[i], wTemp );
+//			}
+//		}
+//		else if ( classCount > 0 )
+//		{
+//			SetDialogVariable( g_sDialogVariables[i], classCount );
+//		}
+//		else
+//		{
+//			SetDialogVariable( g_sDialogVariables[i], "" );
+//		}
+//
+//		if ( g_ClassDefinesRemap[i] == iLocalPlayerClass )
+//		{
+//			// take 1 off the count for the images since the local player has their own image already
+//			if ( classCount > 0 )
+//			{
+//				classCount--;
+//			}
+//
+//			if ( m_pLocalPlayerImage )
+//			{
+//				if ( !m_pLocalPlayerImage->IsVisible() )
+//				{
+//					m_pLocalPlayerImage->SetVisible( true );
+//				}
+//
+//				if ( m_iLocalPlayerClass != iLocalPlayerClass )
+//				{
+//					m_iLocalPlayerClass = iLocalPlayerClass;
+//					m_pLocalPlayerImage->SetImage( iTeam == TF_TEAM_BLUE ? g_sClassImagesBlue[i] : g_sClassImagesRed[i] );
+//				}
+//			}
+//
+//			if ( m_pLocalPlayerBG && !m_pLocalPlayerBG->IsVisible() )
+//			{
+//				m_pLocalPlayerBG->SetVisible( true );
+//			}
+//		}
+//
+//		if ( nTotalCount < CLASS_COUNT_IMAGES )
+//		{
+//			for ( int j = 0 ; j < classCount ; ++j )
+//			{
+//				CTFImagePanel *pImage = m_ClassCountImages[nTotalCount];
+//				if ( pImage )
+//				{
+//					pImage->SetVisible( true );
+//					pImage->SetImage( iTeam == TF_TEAM_BLUE ? g_sClassImagesBlue[i] : g_sClassImagesRed[i] );
+//				}
+//
+//				nTotalCount++;
+//				if ( nTotalCount >= CLASS_COUNT_IMAGES )
+//				{
+//					break;
+//				}
+//			}
+//		}
+//	}
+//	
+//	if ( nTotalCount == 0 )
+//	{
+//		// no classes for our team yet
+//		if ( m_pCountLabel && m_pCountLabel->IsVisible() )
+//		{
+//			m_pCountLabel->SetVisible( false );
+//		}
+//	}
+//	else
+//	{
+//		if ( m_pCountLabel && !m_pCountLabel->IsVisible() )
+//		{
+//			m_pCountLabel->SetVisible( true );
+//		}
+//	}
+//
+//	// turn off any unused images
+//	while ( nTotalCount < CLASS_COUNT_IMAGES )
+//	{
+//		CTFImagePanel *pImage = m_ClassCountImages[nTotalCount];
+//		if ( pImage )
+//		{
+//			pImage->SetVisible( false );
+//		}
+//
+//		nTotalCount++;
+//	}
+//#endif
 }
 
 //-----------------------------------------------------------------------------

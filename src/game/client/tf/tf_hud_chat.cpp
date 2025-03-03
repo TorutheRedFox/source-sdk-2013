@@ -173,9 +173,9 @@ void CHudChatInputLine::ApplySchemeSettings(vgui::IScheme *pScheme)
 CHudChat::CHudChat( const char *pElementName ) : BaseClass( pElementName )
 {
 	ListenForGameEvent( "party_chat" );
-#if defined ( _X360 )
+//#if defined ( _X360 )
 	RegisterForRenderGroup( "mid" );
-#endif
+//#endif
 }
 
 void CHudChat::ApplySchemeSettings( vgui::IScheme *pScheme )

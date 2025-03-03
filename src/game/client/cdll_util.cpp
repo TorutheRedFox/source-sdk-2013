@@ -917,13 +917,13 @@ void UTIL_ReplaceKeyBindings( const wchar_t *inbuf, int inbufsizebytes, OUT_Z_BY
 				const char *key = engine->Key_LookupBinding( *binding == '+' ? binding + 1 : binding );
 				if ( !key )
 				{
-					key = IsX360() ? "" : "< not bound >";
+					key = true ? "" : "< not bound >";
 				}
 
 				//!! change some key names into better names
 				char friendlyName[64];
 				bool bAddBrackets = false;
-				if ( IsX360() )
+				if ( true )//( IsX360() )
 				{
 					if ( !key || !key[0] )
 					{

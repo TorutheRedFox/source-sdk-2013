@@ -75,12 +75,12 @@ void CTFViewRender::Render2DEffectsPostHUD( const CViewSetup &viewTF )
 {
 	BaseClass::Render2DEffectsPostHUD( viewTF );
 
-#if defined( _X360 )
+//#if defined( _X360 )
 	// if we're in the intro menus
 	if ( gViewPortInterface->GetActivePanel() != NULL )
 	{
 		DoEnginePostProcessing( viewTF.x, viewTF.y, viewTF.width, viewTF.height, false, true );
 	}
-#endif //_X360
+//#endif //_X360
 }
 

@@ -120,9 +120,9 @@ private:
 
 	void CheckMvMUpgrades();
 
-#ifdef _X360
+//#ifdef _X360
 	CTFFooter		*m_pFooter;
-#endif
+//#endif
 
 	ButtonCode_t	m_iClassMenuKey;
 	int				m_iCurrentClassIndex;
@@ -130,13 +130,13 @@ private:
 
 	int				m_nBaseMusicGuid;
 
-#ifndef _X360
-	CTFImagePanel *m_ClassCountImages[CLASS_COUNT_IMAGES];
-	CExLabel *m_pCountLabel;
-	CTFImagePanel *m_pLocalPlayerImage;
-	CTFImagePanel *m_pLocalPlayerBG;
-	int m_iLocalPlayerClass;
-#endif
+//#ifndef _X360
+//	CTFImagePanel *m_ClassCountImages[CLASS_COUNT_IMAGES];
+//	CExLabel *m_pCountLabel;
+//	CTFImagePanel *m_pLocalPlayerImage;
+//	CTFImagePanel *m_pLocalPlayerBG;
+//	int m_iLocalPlayerClass;
+//#endif
 };
 
 //-----------------------------------------------------------------------------
